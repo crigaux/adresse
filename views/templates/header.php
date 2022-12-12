@@ -135,7 +135,7 @@
 
         <!-- Bannière -->
         <a href="../accueil">
-            <h1>L'ADRESSE</h1>
+            <h1>L'adresse</h1>
         </a>
         <div class="whiteBrushBottom"></div>
 

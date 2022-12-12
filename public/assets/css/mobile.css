@@ -199,7 +199,7 @@ header p {
 
 h1 {
     font-family: 'Dancing', Courier, monospace;
-    font-size: 5rem;
+    font-size: 5.5rem;
     color: var(--textWhiteColor);
     margin-bottom: 1rem;
     cursor: pointer;
