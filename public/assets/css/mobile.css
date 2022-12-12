@@ -1,0 +1,1257 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Dancing';
+    src: url('../fonts/DancingScript/DancingScript-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'UnicaOne';
+    src: url('../fonts/UnicaOne/UnicaOne-Regular.ttf');
+}
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+main {
+    --bgColor: #f3f3f3;
+    --fontColorDark: #333;
+    --fontColorLight: #f3f3f3;
+
+    font-family: 'Montserrat';
+
+    overflow: hidden;
+}
+
+button {
+    font-family: 'UnicaOne';
+    background-color: #A57D5C;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: #f3f3f3;
+    border-bottom-right-radius: 7px;
+    border-top-left-radius: 7px;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    border: solid 2.5px #A57D5C;
+    transition: all .3s;
+}
+
+button:hover {
+    border-bottom-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #f3f3f3;
+    color: #A57D5C;
+    border: solid 2.5px #A57D5C;
+}
+
+.whiteBrushTop {
+    background-image: url('../img/whiteBrush.png');
+    background-position: center left;
+    background-size: cover;
+    transform: rotate(180deg);
+    z-index: 3;
+    width: 100%;
+    height: 40px;
+}
+
+.whiteBrushBottom {
+    background-image: url('../img/whiteBrush.png');
+    background-position: center right;
+    background-size: cover;
+    z-index: 3;
+    width: 100%;
+    height: 40px;
+}
+
+header .whiteBrushBottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.stars {
+    text-align: center;
+    color: #A57D5C;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars span{
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: 'Dancing', Courier, monospace;
+    font-weight: 400;
+}
+
+/*  ################################################################ 
+    ####################### NavBar + Header ########################
+    ################################################################*/
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/banner.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+}
+
+header a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(51, 51, 51, 0.543);
+}
+
+.burgerMenuIcon {
+    position: relative;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+/*==============++++================*/
+
+.menu {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    margin-bottom: 5px;
+    border: 5px solid transparent;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 30px;
+    display: block;
+    margin: 8px auto;
+    position: relative;
+    background-color: #fff;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.logNeeded {
+    color: #fff;
+    margin: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'UnicaOne';
+}
+
+nav button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 41px;
+    margin: 0 1.5rem;
+    font-family: 'UnicaOne', Courier, monospace;
+    font-size: 1.2rem;
+}
+
+header p {
+    color: var(--fontColorLight);
+    margin-bottom: 4rem;
+}
+
+h1 {
+    font-family: 'UnicaOne', Courier, monospace;
+    font-size: 5rem;
+    color: #A57D5C;
+    text-shadow: 3px 3px 2px #f3f3f3;
+    margin-bottom: 4rem;
+    cursor: pointer;
+}
+
+header .whiteBrush {
+    background-image: url('../img/whiteBrush.png');
+    background-position: top;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 50px;
+}
+
+/*  ################################################################ 
+    ######################## Présentation ##########################
+    ################################################################*/
+
+.presentation .presImgContainer {
+    position: relative;
+    height: 300px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+    .presentation .presImgContainer {
+        width: 54%;
+        margin-left: 28%;
+    }
+
+    .presentation p {
+        width: 80%;
+    }
+}
+
+.presentation img:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform:translate(-60%, -45%);
+    width: 270px;
+    height: 210px;
+    border-radius: 40px;
+    z-index: 3;
+    object-fit: cover;
+}
+
+.presentation img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 17%;
+    transform:translateX(-20%);
+    width: 210px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 40px;
+    z-index: 2;
+}
+
+.presentation .about {
+    margin: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.presentation .about h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #A57D5C;
+}
+
+.presentation .about h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.presentation .about p {
+    font-size: 1rem;
+    line-height: 1.7rem;
+    text-align: center;
+}
+
+/*  ################################################################ 
+    ######################## Réservation ###########################
+    ################################################################*/
+
+.reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/banner.png');
+}
+
+.reservation h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    color: #A57D5C;
+    text-align: center;
+}
+
+.reservation form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem 0 2rem 0;
+}
+
+.reservation button {
+    margin-bottom: 3.5rem;
+}
+
+.reservation form input,
+.reservation form select,
+.reservation form textarea {
+    background-color: rgba(255, 255, 255, 0.059);
+    border: none;
+    border-bottom: 1px gray solid;
+    margin: 1rem 0;
+    color: #f3f3f3;
+    padding: 0.3rem 0.3rem;
+    width: 100%;
+}
+
+.reservation form textarea {
+    font-family: 'Montserrat';
+}
+
+.reservation .reservationToGo {
+    display: none;
+}
+
+.reservation .dish {
+    display: flex;
+    width: 80%;
+}
+
+.reservation .dish select {
+    margin: 1rem 0;
+}
+
+.reservation .dish select:nth-child(1) {
+    width: 80%;
+    margin-right: 1rem;
+}
+
+.reservation .dish select:nth-child(2) {
+    width: 20%;
+}
+
+.reservationType {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservationType button.inactive {
+    background-color: #d3d3d3a3;
+}
+
+.reservationType button.inactive:hover {
+    background-color: #d3d3d3db;
+}
+
+.reservationType button {
+    width: 115px;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+}
+
+input,
+textarea,
+select {
+    border-radius: 5px;
+}
+
+input[type='checkbox'] {
+    accent-color: #A57D5C;
+    cursor: pointer;
+    height: 25px;
+}
+
+option {
+    background-color: #000;
+    color: #f3f3f3;
+}
+
+.reservation form input::placeholder,
+.reservation form textarea::placeholder {
+    color: #f3f3f3;
+}
+
+.reservation form input:focus,
+.reservation form textarea:focus {
+    outline: none;
+}
+
+.reservation .addDish {
+    width: 80%;
+}
+
+.reservation .dishes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.del {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(176, 0, 0, 0.815);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    margin: 1rem 0 0 1rem;
+}
+
+.del svg {
+    width: 15px;
+    height: 15px;
+    fill: white;
+}
+
+.reservation .addDish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.059);
+    border: none;
+    border-bottom: 1px gray solid;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.reservation .errorMessage {
+    width: 100%;
+}
+
+/*  ################################################################ 
+    ######################## Points Forts ##########################
+    ################################################################*/
+
+.ourForces h2 {
+    font-size: 2rem;
+    margin: 2rem 0 0.5rem 0;
+    color: #A57D5C;
+    text-align: center;
+}
+
+.ourForces h3 {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.ourForces .featureContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.ourForces .featureContainer div {
+    width: 42%;
+    margin: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px #d3d3d3;
+    height: 280px;
+}
+
+.ourForces .featureContainer div img {
+    height: 70px;
+}
+
+.ourForces .featureContainer div:hover h4 {
+    color: #A57D5C;
+}
+
+.ourForces .featureContainer div h4 {
+    text-align: center;
+    font-weight: 800;
+    width: 90%;
+}
+
+.ourForces .featureContainer div p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 0.8rem;
+    width: 90%;
+    line-height: 1.5rem;
+}
+
+/*  ################################################################ 
+    ####################### Aperçu du menu #########################
+    ################################################################*/
+
+.menuPreview {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/banner.png');
+}
+
+.menuPreview h2 {
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem 0;
+    color: #A57D5C;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.menuPreview h3 {
+    font-size: 1.4rem;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.menuPreview .menuPreviewContainer {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.menuPreview .menuPreviewContainer .categories {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.menuPreview .menuPreviewContainer .categories div {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0.5rem;
+    margin: 1rem 0;
+}
+
+.menuPreview .menuPreviewContainer .categoriesItem:hover {
+    color: #A57D5C;
+    transition: .3s;
+}
+
+.menuPreview .menuPreviewContainer .catDishesContainer{
+    border-left: 1px solid #4F4D4D;
+    padding: 3rem 0 1rem 2rem;
+}
+
+.menuPreview .menuPreviewContainer .catDishiesItemTitle {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menuPreview .catDishiesItem .catDishiesItemTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.menuPreview .catDishiesItem {
+    margin-bottom: 1.5rem;
+}
+
+.menuPreview .catDishiesItem h4:hover {
+    color: #A57D5C;
+}
+
+.menuPreview .catDishiesItem p {
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0.5rem 0;
+    line-height: 1.2rem;
+}
+
+.menuPreview .catDishiesItem span {
+    font-family: 'Dancing', Courier, monospace;
+    color: #A57D5C;
+    font-weight: 600;
+}
+
+.menuPreview button {
+    margin: 1rem 0 3rem 50%;
+    transform: translateX(-50%);
+}
+
+/*  ################################################################ 
+    ####################### Aperçu du menu #########################
+    ################################################################*/
+
+.reviewPreview {
+    margin: 0 1rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewPreview h2 {
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem 0;
+    color: #A57D5C;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.reviewPreview h3 {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.reviewPreview p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.reviewPreview h4 {
+    text-align: center;
+    color: #A57D5C;
+}
+
+#displayedReview h3 {
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+#displayedReview hr:nth-child(1) {
+    display: none;
+}
+
+#displayedReview {
+    width: 90%;
+    max-width: 1000px;
+}
+
+#displayedReview hr {
+    margin: 2rem 0;
+    width: 80%;
+    margin-left: 10%;
+    border: none;
+    border-bottom: 1px solid #6969697a;
+}
+
+.reviewsPreviewBtn {
+    margin-top: 2rem;
+}
+
+/*  ################################################################ 
+    #######################     Footer     #########################
+    ################################################################*/
+
+footer {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f3f3f3;
+    width: 100%;
+}
+
+footer h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: 'UnicaOne';
+    margin-top: 1.5rem;
+}
+
+footer a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    color: #A57D5C;
+}
+
+footer .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+footer .contact a {
+    margin: 0.3rem 0;
+    text-decoration: none;
+    color: #f3f3f3;
+}
+
+footer .contact a:hover {
+    color: #A57D5C;
+}
+
+footer .social img{
+    height: 30px;
+    margin: 0 1rem;
+}
+
+footer .social svg {
+    fill: #fff;
+    height: 30px;
+    margin: 0.3rem 1rem;
+}
+
+footer .social svg:hover {
+    fill: #A57D5C;
+}
+
+footer .legal {
+    margin: 1rem 0 3rem 0;
+    font-size: 0.7rem;
+}
+
+footer .cgu {
+    font-size: 1rem;
+    margin: 1rem 0 .5rem 0;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .cgu a:nth-child(1) {
+    margin-bottom: .5rem;
+}
+
+/*  ################################################################ 
+    ################### Formulaire de connexion ####################
+    ################################################################*/
+
+.connectHeader {
+    height: 0;
+}
+
+.connectHeader h1 {
+    margin: 0;
+}
+
+.connectHeader h2 {
+    color: #f3f3f3;
+    font-size: 2.5rem;
+    margin-top: -1rem;
+    text-shadow: 5px 5px 2px #000;
+}
+
+.connectForm, .inscriptionForm {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectForm form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin: 10vh 1rem 0 1rem;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 50vh;
+    width: 300px;
+    background-color: rgba(29, 29, 29, 0.577);
+}
+
+.connectForm form input {
+    background-color: rgba(255, 255, 255, 0.059);
+    border: none;
+    border-bottom: 1px gray solid;
+    color: #f3f3f3;
+    padding: 0.3rem 0.3rem;
+    width: 240px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.connectForm form input::placeholder {
+    color: #f3f3f3;
+}
+
+.connectForm form input:focus {
+    outline: none;
+}
+
+.connectForm button {
+    padding: 0.7rem 1.2rem;
+}
+
+.connectForm a {
+    color: #f3f3f3;
+    font-size: 0.8rem;
+}
+
+.forgotPwd legend {
+    text-align: center;
+}
+
+/*  ################################################################ 
+    ################## Formulaire d'inscription ####################
+    ################################################################*/
+
+.connectHeader {
+    height: 0;
+}
+
+.connectHeader h1 {
+    margin: 0;
+}
+
+.connectHeader h2 {
+    color: #f3f3f3;
+    font-size: 2.5rem;
+    margin-top: -1rem;
+    text-shadow: 5px 5px 2px #000;
+}
+
+.inscriptionForm {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.inscriptionForm form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10vh 1rem 0 1rem;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 75vh;
+    width: 300px;
+    background-color: rgba(29, 29, 29, 0.577);
+}
+
+.inscriptionForm form input {
+    background-color: rgba(255, 255, 255, 0.059);
+    border: none;
+    border-bottom: 1px gray solid;
+    color: #f3f3f3;
+    padding: 0.3rem 0.3rem;
+    width: 240px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.inscriptionForm form input::placeholder {
+    color: #f3f3f3;
+}
+
+.inscriptionForm form input:focus {
+    outline: none;
+}
+
+.inscriptionForm button {
+    margin: 0;
+    padding: 0.7rem 1.2rem;
+    width: 80%;
+}
+
+.inscriptionForm fieldset {
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    margin: 0;
+    color: #f3f3f3;
+    font-size: 0.7rem;
+}
+
+.inscriptionForm .checkbox {
+    width: 15px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.inscriptionForm label > a {
+    text-decoration: underline;
+}
+
+.inscriptionForm label > a:hover {
+    color: #A57D5C;
+}
+
+legend {
+    font-family: 'Dancing', Courier, monospace;
+    font-weight: 500;
+    color: #A57D5C;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.inscriptionForm a {
+    color: #f3f3f3;
+    font-size: 0.8rem;
+}
+
+label {
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.inscriptionForm button {
+    cursor: pointer;
+}
+
+.inscriptionForm button:disabled {
+    cursor: auto;
+    background-color: #4F4D4D;
+    color: #333;
+}
+
+.inscriptionForm a,
+.connectForm a {
+    cursor: pointer;
+}
+
+
+/*  ################################################################ 
+    ################# Overlay erreur mot de passe ##################
+    ################################################################*/
+
+.passwordRequires {
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    position: fixed ;
+    display: none;
+    top: 37%;
+    width: 350px;
+
+}
+
+.passwordRequires div {
+    color: rgb(190, 1, 1);
+}
+
+/*  ################################################################ 
+    ##################### Overlay Menu Burger ######################
+    ################################################################*/
+
+@media (max-width: 900px) {
+    .menuLinksDesktop {
+        display: none;
+        font-family: 'UnicaOne', Courier, monospace !important;
+    }
+
+    .overlayMenuBurger {
+        position: fixed;
+        display: flex;
+        justify-content: flex-end;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 100vh;;
+        z-index: 100;
+        transform: translateX(100%);
+    }
+    
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: #000000c3;
+    }
+    
+    .overlay .topContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+        background-color: #00000066;
+    }
+    
+    .topcontainer img {
+        height: 30px;
+        width: 30px;
+    }
+    
+    .overlay .overlayMenuContent {
+        display: flex;
+        flex-direction: column;
+        height: 90%;
+    }
+    
+    .overlay .close {
+        height: 40px;
+        width: 40px;
+        margin: 0.6rem 1.1rem 0 0;
+        fill: white;
+    }
+    
+    .menuLinks {
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .menuLinks a {
+        font-family: 'UnicaOne', Courier, monospace;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 1.8rem;
+        color: #A57D5C;
+        margin: 0.5rem 1.5rem;
+        text-shadow: 2px 2px 2px black;
+    }
+    
+    .menuLinks .connect {
+        position: absolute;
+        bottom: 5vh;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #A57D5C;
+        width: 100%;
+        height: 80px;
+    }
+    
+    .menuLinks .connect a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-size: 1.5rem;
+        color: #fff;
+        text-shadow: none;
+    }
+
+    .menuLinks .connect a svg {
+        fill: #fff;
+        height: 25px;
+        width: 25px;
+        margin: 0;
+    }
+    
+    .overlayMenuBurger.open {
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+    
+    .overlayMenuBurger.close {
+        transform: translateX(100%);
+        transition: 0.5s;
+    }
+}
+
+/*  ################################################################ 
+    ########################### Page 404 ###########################
+    ################################################################*/
+
+.main404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #000;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(29, 29, 29, 0.577);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    height: 50vh;
+    width: 300px;
+}
+
+.container404 h1 {
+    font-family: 'Dancing', Courier, monospace;
+    font-weight: 500;
+    color: #A57D5C;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: none;
+}
+
+.messageContainer {
+    position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    height: fit-content;
+    z-index: 100;
+}
+
+.message {
+    background-color: #41D888;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    color: #f3f3f3;
+    z-index: 100;
+}
+
+.errorContainer {
+    position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    height: fit-content;
+    z-index: 100;
+}
+
+.reservation .errorMessage {
+    background-color: #F94416;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    color: #f3f3f3;
+    z-index: 100;
+}
+
+.messageContainer,
+.errorContainer {
+	animation: fade 2s linear forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@media (min-width:500px) and (max-width:900px) {
+    .overlay h3 {
+        font-size: 2.5rem;
+    }
+
+    .overlay .connect h3 {
+        font-size: 1.8rem;
+    }
+}
+
+.logOutIcon svg {
+    width: 20px;
+    height: 20px;
+    fill: #A57D5C;
+}
+
+.logOutIconDesk svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+/* CGU */
+
+.cgu {
+    font-family: 'Montserrat';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cgu .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 4rem;
+}
+
+.cgu p {
+    text-align: justify;
+}
+
+.cgu h2 {
+    color: #A57D5C;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cgu h3 {
+    margin: 2rem 0;
+    text-align: center;
+}

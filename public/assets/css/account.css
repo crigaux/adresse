@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'UnicaOne';
+    src: url('../fonts/UnicaOne/UnicaOne-Regular.ttf');
+}
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.account {
+    height: auto;
+    min-height: 100vh;
+}
+
+.accountInfos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    margin: calc(80px + 5vh) 0 5vh 0;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: rgba(29, 29, 29, 0.783);
+    padding: 2rem 0;
+}
+
+.account h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: none;
+}
+
+.account h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
+}
+
+.infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infos, .myReviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    font-family: 'Montserrat';
+}
+
+.infos div,
+.myReviews div {
+    color: white;
+}
+
+.infosDetails {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myInfosButton {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myInfosButton a {
+    margin-top: 1rem;
+    font-size: 10px;
+}
+
+.myInfosButton a:hover {
+    text-decoration: underline;
+}
+
+.myReviewDetails {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    background-color: rgba(255, 255, 255, 0.059);
+    padding: 1rem 1rem;
+    border-bottom: 1px gray solid;
+    border-radius: 20px;
+}
+
+.myReviewDetails p {
+    font-style: italic;
+}
+
+.account .myReviewButton {
+    align-self: center;
+}
+
+.account .myReviewButton button,
+.account .myInfosButton button {
+    margin: 1rem 1rem 0 1rem;
+}
+
+.account .myReviewButton button:nth-child(2),
+.account .myInfosButton button:nth-child(2) {
+    background-color: rgb(155, 2, 2);
+    border-color: rgb(155, 2, 2);
+}
+
+.account .myReviewButton button:nth-child(2):hover,
+.account .myInfosButton button:nth-child(2):hover {
+    background-color: #f3f3f3;
+    color: rgb(155, 2, 2);
+}

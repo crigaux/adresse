@@ -1,0 +1,345 @@
+@media (min-width: 900px) {
+
+    h1 {
+        font-size: 8rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+    
+    a {
+        cursor: auto;
+        text-decoration: none;
+    }
+
+    /* ################################################################ 
+    ####################### Gestion Menu Desktop ######################
+    ################################################################*/
+
+    .overlayMenuBurger {
+        display: none;
+    }
+    
+    .burgerMenuIcon {
+        display: none;
+    }
+
+    .menuLinksDesktop {
+        display: block;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menuLinksDesktop .connect {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .menuLinksDesktop .connect h3 {
+        font-size: 1.2rem;
+        text-shadow: none;
+        border: solid 1px #A57D5C;
+        padding: 0.5rem;
+        border-radius: 10px;
+        background-color: #A57D5C;
+    }
+
+    .menuLinksDesktop a {
+        font-family: 'UnicaOne', Courier, monospace;
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+    }
+
+    .logOutIconDesk {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav button {
+        font-family: 'UnicaOne', Courier, monospace;
+        font-size: 1.2rem;
+    }
+
+    nav h3 {
+        cursor: pointer;
+    }
+
+    /*  ################################################################ 
+    ####################### Présentation Desktop #######################
+    ################################################################*/
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .presentation {
+        display: flex;
+        width: 90%;
+        max-width: 1400px;
+        /* margin-left: 5%; */
+    }
+
+    .presentation .about h2 {
+        font-size: 3.5rem;
+    }
+
+    .presentation .presImgContainer {
+        position: relative;
+        height: 600px;
+        margin-bottom: 2rem;
+    }
+    
+    .presentation img:nth-child(1) {
+        position: absolute;
+        top: 45%;
+        left: 60%;
+        transform: translateY(-40%);
+        border-radius: 40px;
+        z-index: 3;
+    }
+    
+    .presentation img:nth-child(2) {
+        position: absolute;
+        top: 1.5rem;
+        left: 60%;
+        object-fit: cover;
+        border-radius: 40px;
+        z-index: 2;
+    }
+
+    .presentation .presImgContainer {
+        width: 30%;
+    }
+
+    .presentation .about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 55%;
+        margin-left: 50vh;
+    }
+
+    /*  ################################################################ 
+    ####################### Réservation Desktop ########################
+    ################################################################*/
+
+    .reservation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .reservation .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        max-width: 1400px;
+    }
+
+    .reservation form input,
+    .reservation form select,
+    .reservation form textarea {
+        width: 100%;
+    }
+
+    .reservation h2 {
+        font-size: 3.5rem;
+    }
+
+    .reservation .dish {
+        width: 100%;
+    }
+
+    .reservation form {
+        width: 60%;
+    }
+
+    .reservationType {
+        width: 70%;
+    }
+
+    .reservationType button {
+        width: 40%;
+        font-size: 1.4rem;
+        margin: 1rem 3rem;
+        width: 45%;
+    }
+
+    /*  ################################################################ 
+    ########################## Avantages Desktop #######################
+    ################################################################*/
+
+    .ourForces {
+        max-width: 1400px;
+    }
+
+    .ourForces h2 {
+        font-size: 3.5rem;
+    }
+
+    .ourForces .featureContainer div {
+        width: 25%;
+    }
+
+    .ourForces .featureContainer div p {
+        width: 74%;
+    }
+
+    /*  ################################################################ 
+    ###################### Menu Preview Desktop ########################
+    ################################################################*/
+
+    .menuPreview {
+        width: 100%;
+    }
+    .menuPreview h2 {
+        font-size: 3.5rem;
+    }
+
+    .menuPreview .menuPreviewContainer {
+        margin-left: 25%;
+        width: 50%;
+    }
+
+    .menuPreview .menuPreviewContainer .categories{
+        width: 30%;
+        font-size: 1.8rem;
+    }
+
+    .menuPreview .menuPreviewContainer .catDishesContainer{
+        width: 70%;
+        font-size: 1.5rem;
+    }
+
+    .menuPreview .categoriesItem {
+        cursor: pointer;
+    }
+
+    /*  ################################################################ 
+    ################### Apreçu commentaire Desktop #####################
+    ################################################################*/
+
+    .reviewPreview h2 {
+        font-size: 3.5rem;
+    }
+
+    .reviewPreview p {
+        width: 100%;
+    }
+
+    /*  ################################################################ 
+    ################## Inscription Connexion Desktop ###################
+    ################################################################*/
+    
+    .connectForm, .inscriptionForm {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../img/banner.png');
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1300px) {
+    .presentation img:nth-child(1) {
+        width: 400px;
+        height: 300px;
+
+    }
+    
+    .presentation img:nth-child(2) {
+        width: 300px;
+        height: 450px;
+        margin-top: 12%;
+    } 
+}
+
+@media (min-width: 1300px) {
+    .presentation img:nth-child(1) {
+        width: 450px;
+        height: 340px;
+
+    }
+    
+    .presentation img:nth-child(2) {
+        width: 340px;
+        height: 500px;
+        margin-top: 7%;
+    } 
+
+    .presentation {
+        width: 80%;
+    }
+}
+
+/*  ################################################################ 
+    ##################### Animation liens menu #####################
+    ################################################################ */
+
+.menuLinksDesktop {
+    font-family: 'Raleway', Arial, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.menuLinksDesktop * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+
+.menuLinksDesktop .linkNav {
+    display: inline-block;
+    padding: 0.5em 17px;
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.menuLinksDesktop .linkNav:before {
+    left: 20%;
+    right: 20%;
+    top: 50%;
+    content: '';
+    border-left: 12px solid #A57D5C;
+    border-right: 12px solid #A57D5C;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 3px;
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.menuLinksDesktop .linkNav:hover,
+.menuLinksDesktop .linkNav.active,
+.menuLinksDesktop .current .linkNav {
+    color: #ffffff;
+}
+
+.menuLinksDesktop .linkNav:hover:before,
+.menuLinksDesktop .linkNav.active:before,
+.menuLinksDesktop .current .linkNav:before {
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+/* CGU */
+
+.cgu h2 {
+    font-size: 3rem;
+}

@@ -1,0 +1,1318 @@
+@font-face {
+	font-family: 'UnicaOne';
+	src: url('/public/assets/fonts/UnicaOne/UnicaOne-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('/public/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+*, ::before, ::after {
+	margin : 0;
+	padding : 0;
+	box-sizing : border-box;
+}
+
+:root {
+	--primary-color : #000;
+	--secondary-color : #fff;
+	--tertiary-color : #A57D5C;
+	--title-font-size : 3rem;
+	--subtitle-font-size : 1.5rem;
+	--text-font-size : 1rem;
+	--bold-weight : 600;
+	--medium-weight : 300;
+	--logo-weight : 800;
+
+	font-family: 'Montserrat';
+}
+
+h1 {
+	font-family: 'UnicaOne';
+	width: 100%;
+	text-align: center;
+	font-size: var(--title-font-size);
+	font-weight: var(--bold-weight);
+	color: var(--tertiary-color);
+	margin: 3rem 0 2rem 0;
+}
+
+h2 {
+	width: 100%;
+	text-align: center;
+	font-size: var(--subtitle-font-size);
+	font-weight: var(--logo-weight);
+	margin: 1rem 0;
+}
+
+main {
+	display: flex;
+	scroll-behavior: smooth;
+}
+
+.closeBurger {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+.closeBurger:hover svg {
+	cursor: pointer;
+}
+
+.openBurger {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	display: block;
+	height: 30px;
+	width: 30px;
+	z-index: 50;
+}
+
+.sidebar .closeBurger svg {
+	margin: 0;
+	height: 30px;
+	width: 30px;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translateX(-230px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100vh;
+	width: 220px;
+	background-color: #d3d3d3;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.46);
+	transition: all .5s ease-in-out;
+	z-index: 100;
+}
+
+.sidebar.open {
+	transform: translateX(0);
+}
+
+.sidebarLogo {
+	font-family: 'UnicaOne';
+	font-size: var(--title-font-size);
+	font-weight: var(--logo-weight);
+	color: var(--tertiary-color);
+}
+
+.sidebarLogo a {
+	color: var(--tertiary-color);
+	text-decoration: none;
+}
+
+.sidebarMenu {
+	width: 100%;
+}
+
+.sidebar ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat';
+	list-style-type: none;
+	width: 100%;
+}
+
+.sidebar ul li a {
+	display: block;
+	text-decoration: none;
+	font-variant: var(--subtitle-font-size);
+	color: var(--primary-color);
+	font-weight: var(--bold-weight);
+	padding: 0.8rem 0 0.8rem 2rem;
+	width: 100%;
+}
+
+.sidebar ul li a:hover {
+	background-color: var(--tertiary-color);
+	color: var(--secondary-color);
+	border-top-right-radius: 20px;
+}
+
+.sidebar ul li a:hover svg {
+	fill: var(--secondary-color);
+}
+
+.logOut a {
+	font-family: 'UnicaOne';
+	background-color: var(--tertiary-color);
+	text-transform: uppercase;
+	padding: 0.5rem 1rem;
+	border: none;
+	color: var(--secondary-color);
+	border-bottom-right-radius: 7px;
+	border-top-left-radius: 7px;
+	font-size: var(--text-font-size);
+	font-weight: var(--normal-weight);
+	margin: 1rem 0;
+	cursor: pointer;
+	border: solid 2.5px var(--tertiary-color);
+	transition: all .3s;
+	text-decoration: none;
+}
+
+.sidebar svg {
+	margin-right: 0.5rem;
+	width: 15px;
+	height: 15px;
+	fill: var(--primary-color);
+}
+
+.logOut a:hover {
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	background-color: #f3f3f3;
+	color: #A57D5C;
+	border: solid 2.5px #A57D5C;
+	font-weight: var(--bold-weight);
+}
+
+/* Partie menu du dashboard */
+
+.dishes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+}
+
+.dishCard {
+	margin: 1.5rem 1.5rem;
+	height: 400px;
+	width: 300px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.46);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.dishCard .dishHead {
+	height: 180px;
+}
+.dishCard .dishHead img {
+	width: 300px;
+	height: 180px;
+	object-fit: cover;
+	object-position: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.dishCard .dishBody {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1rem 2rem;
+	font-weight: var(--bold-weight);
+	height: 220px;
+}
+
+.dishCard .dishBody .price {
+	color: grey;
+	margin-top: 0.2rem;
+	font-size: 0.8rem;
+}
+
+.dishCard .dishBody .desc {
+	font-size: 0.8rem;
+	margin-top: 0.2rem;
+	font-style: italic;
+	text-align: center;
+}
+
+.dishCard .dishBody .price,
+.dishCard .dishBody .name {
+	text-align: center;
+}
+
+.dishCard .dishBody a {
+	font-family: 'UnicaOne';
+	background-color: var(--tertiary-color);
+	text-transform: uppercase;
+	padding: 0.5rem 1rem;
+	border: none;
+	color: var(--secondary-color);
+	border-bottom-right-radius: 7px;
+	border-top-left-radius: 7px;
+	font-size: var(--text-font-size);
+	font-weight: var(--medium-weight);
+	cursor: pointer;
+	border: solid 2.5px var(--tertiary-color);
+	transition: all .3s;
+	text-decoration: none;
+}
+
+.dishCard .dishBody a:hover {
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	background-color: #f3f3f3;
+	color: #A57D5C;
+	border: solid 2.5px #A57D5C;
+	font-weight: var(--medium-weight);
+}
+
+/* Page de modification d'un plat */
+
+.dishEditForm {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1rem;
+	width: 325px;
+}
+
+input,
+textarea,
+select {
+	padding: 0.5rem;
+	margin: 0.5rem 0;
+	width: 100%;
+	resize: none;
+	/* background-color: #f5f5f580; */
+	border: none;
+	color: var(--tertiary-color);
+	border-bottom: var(--primary-color) solid 1px;
+	border-bottom-right-radius: 7px;
+	font-size: var(--text-font-size);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+	border-bottom: var(--tertiary-color) solid 3px;
+}
+
+button {
+	font-family: 'UnicaOne';
+	background-color: #A57D5C;
+	text-transform: uppercase;
+	padding: 0.5rem 1rem;
+	border: none;
+	color: #f3f3f3;
+	border-bottom-right-radius: 7px;
+	border-top-left-radius: 7px;
+	font-size: 1.2rem;
+	margin: 1rem 0;
+	cursor: pointer;
+	border: solid 2.5px #A57D5C;
+	transition: all .3s;
+}
+
+button:hover {
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 0;
+	border-top-left-radius: 0;
+	background-color: #f3f3f3;
+	color: #A57D5C;
+	border: solid 2.5px #A57D5C;
+}
+
+.dishHead {
+	position: relative;
+}
+
+.formDishImg {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+
+.formDishImg input {
+	display: none;
+}
+
+.formDishImg label {
+	display: block;
+	text-align: center;
+	background-color: rgba(51, 51, 51, 0.452);
+	font-size: 2rem;
+	cursor: pointer;
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+
+.formDishImg label svg {
+	fill: var(--secondary-color);
+	z-index: 2;
+	padding: 0.5rem;
+}
+
+.selected svg {
+	width: 30px;
+}
+
+.dishBody {
+	position: relative;
+}
+
+.dishBody form input {
+	display: none;
+}
+
+.dishBody form label {
+	position: absolute;
+	top: 3%;
+	left: 3%;
+	display: block;
+	height: 30px;
+	cursor: pointer;
+}
+
+.dishBody form svg {
+	height: 30px;
+}
+
+/* Bouton d'ajout de plat */
+
+.addDishBtn {
+	cursor: pointer;
+}
+
+/* Suppression d'un plat */
+
+.btnDeleteConf {
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+.btnDeleteConf:hover {
+	color: var(--tertiary-color);
+}
+
+/* Modale */
+
+.modale {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	transform: scale(0);
+}
+
+.modaleContent {
+	width: 400px;
+	background-color: #333333;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.modaleContent h2 {
+	font-family: 'UnicaOne';
+	font-size: 2rem;
+	color: #f3f3f3;
+	margin: 1rem 0;
+	text-transform: uppercase;
+}
+
+.modaleBtn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.modaleBtn a {
+	color: #f3f3f3;
+	text-decoration: none;
+	font-size: 1rem;
+	margin: 0.5rem 0;
+}
+
+.modaleBtn a:hover {
+	color: rgba(175, 0, 0, 0.811);
+}
+
+.modale.active {
+	transform: scale(100%);
+}
+
+/* Affichage des messages d'information */
+
+.messageContainer {
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-top: 2rem;
+	height: fit-content;
+	z-index: 20;
+}
+
+.message {
+	background-color: #41D888;
+	padding: 1rem 2rem;
+	border-radius: 2px;
+	color: #f3f3f3;
+}
+
+.errorContainer {
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin-top: 2rem;
+	height: fit-content;
+	z-index: 20;
+}
+
+.errorSession {
+	background-color: #F94416;
+	padding: 1rem 2rem;
+	border-radius: 2px;
+	color: #f3f3f3;
+}
+
+.reservation .errorMessage {
+	background-color: #F94416;
+	padding: 1rem 2rem;
+	border-radius: 2px;
+	color: #f3f3f3;
+}
+
+.messageContainer,
+.errorContainer {
+	animation: fade 2s linear forwards;
+}
+
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@media (min-width: 900px) {
+	.sidebar {
+		transform: translateX(0);
+	}
+
+	.dishes {
+		margin-left: 220px;
+		width: calc(100vw - 220px);
+	}
+
+	.addDishBtn {
+		position: fixed;
+		top: 5%;
+		right: 5%;
+		z-index: 10;
+	}
+
+	.closeBurger {
+		display: none;
+	}
+	
+	.openBurger {
+		display: none;
+	}
+
+	.messageContainer,
+	.errorContainer {
+		transform: translateX(calc(-50% + 110px));
+	}
+}
+
+/* Réservations */
+
+.reservations {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+}
+
+.reservations .reservationCard {
+	width: 350px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.46);
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	margin: 1rem 0;
+}
+
+.reservations .reservationCardHead {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	background-color: #EAEAEA;
+	width: 100%;
+	color: var(--tertiary-color);
+	font-weight: var(--logo-weight);
+	font-size: 1.5rem;
+	height: 80px;
+	border-top-left-radius: 10px;
+}
+
+.reservationCardHead svg {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	transform: translateY(-50%);
+	width: 40px;
+	fill: #A1A1A1;
+}
+
+.reservationCardHead svg:hover {
+	cursor: pointer;
+}
+
+.reservations .reservationCardBody {
+	border-bottom-right-radius: 10px;
+	padding: 0.8rem;
+	height: 150px;
+	width: 100%;
+}
+
+.reservations .reservationCardBody .contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0.5rem 0;
+}
+
+.date, .time {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 1rem 0;
+	font-weight: var(--bold-weight);
+}
+
+.date svg,
+.time svg {
+	width: 20px;
+	margin-right: .5rem;
+}
+
+.phone svg,
+.email svg {
+	height: 12px;
+	margin-right: 0.2rem;
+}
+
+.phone,
+.email {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-style: italic;
+}
+
+.contact a {
+	color: var(--primary-color);
+}
+
+.contact a:hover {
+	color: var(--tertiary-color);
+}
+
+.formReservationValidate input {
+	display: none;
+}
+
+.btnDeleteConf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	color: var(--primary-color);
+}
+
+.addDish {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.059);
+	border: none;
+	border-bottom: 1px gray solid;
+	border-radius: 50%;
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+	font-size: 2.5rem;
+	color: var(--primary-color);
+}
+
+.del {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(176, 0, 0, 0.815);
+	border: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	font-size: 1rem;
+	color: white;
+	margin: .5rem auto;
+}
+
+.del svg {
+	width: 15px;
+	height: 15px;
+	fill: white;
+}
+
+.delOrderBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+.delOrderBtn svg {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	fill: rgba(176, 0, 0, 0.815);
+}
+
+@media (min-width: 900px) {
+	.reservations {
+		margin-left: 220px;
+		width: calc(100vw - 220px);
+	}
+}
+
+/* Commandes */
+
+.orders {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+}
+
+.orders .orderContainer {
+		position: relative;
+	border: #A1A1A1 solid 1px;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1.5rem 0;
+	width: 90%;
+}
+
+.orders .name {
+	font-size: var(--title-font-size);
+	color: var(--tertiary-color);
+	font-weight: var(--bold-weight);
+	text-transform: uppercase;
+	font-family: 'UnicaOne';
+}
+
+.orders .date {
+	margin: 0.5rem;
+	margin-top: 1rem;
+	text-transform: uppercase;
+}
+
+.orders .time {
+	margin: 0;
+	margin-bottom: .5rem;
+}
+
+.orders .time,
+.orders .date {
+	font-weight: var(--title-weight);
+	font-family: 'UnicaOne';
+	font-size: 1.2rem;
+}
+
+.orders .orderHead {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
+.orders.admin .orderHead {
+	justify-content: space-between;
+}
+
+.orders .contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.orders .contact a {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	margin: .2rem;
+	color: #696969;
+	font-style: italic;
+}
+
+.orders .contact a:hover {
+	color: var(--tertiary-color);
+}
+
+.orders .contact a:hover svg{
+	fill: var(--tertiary-color);
+}
+
+.orders .contact svg {
+	width: 15px;
+	margin-right: .5rem;
+	fill: #696969;
+}
+
+.orders .order {
+	display: flex;
+	width: 80%;
+	margin: .75rem 0 .75rem 10%;
+	box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.247);
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.orders .orderBody {
+	display: flex;
+	flex-direction: column;
+}
+
+.orders img {
+	height: 100px;
+	width: 100px;
+	min-width: 100px;
+	object-fit: cover;
+	object-position: center;
+	border-top-left-radius: 12px ;
+	border-bottom-right-radius: 10px ;
+}
+
+.orders .orderInfo {
+	display: flex;
+	justify-content: space-between;
+	height: 100px;
+	width: 60vw;
+}
+
+.orders .dish,
+.orders .orderPrice {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.orders .orderPrice {
+	margin-right: 1rem;
+}
+
+.orders .dish {
+	margin-left: 1rem;
+}
+
+.orders .title {
+	font-weight: var(--logo-weight);
+	font-size: 1.2rem;
+	text-transform: capitalize;
+}
+
+.orders .quantity {
+	font-size: 1.2rem;
+	text-align: right;
+	font-weight: var(--logo-weight);
+}
+
+.orders .price {
+	font-weight: var(--logo-weight);
+	font-size: 1rem;;
+	color: #696969;
+}
+
+.orders .totalPrice {
+	font-weight: var(--logo-weight);
+	font-size: 1.2rem;
+	color: #696969;
+}
+
+.orders form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+}
+
+.orders form button {
+	width: 150px;
+}
+
+.orders .totalCart {
+	font-size: var(--text-font-size);
+	font-weight: var(--logo-weight);
+	color: #696969;
+}
+
+.orders .totalCart span {
+	color: var(--primary-color);
+	font-size: 1.5rem;
+}
+
+/* .user .btnDeleteConf {
+	position: absolute;
+	top: .6rem;
+	right: .6rem;
+	height: 45px;
+	width: 45px;
+}
+
+.user .btnDeleteConf svg {
+	fill: #d33913;
+	height: 100%;
+} */
+
+.validatedBtn {
+	background-color:#41D888;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: #41D888 2px solid;
+}
+
+.validatedBtn:hover {
+	background-color:#41D888;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: #41D888 2px solid;
+	cursor: text;
+	color: var(--secondary-color);
+
+}
+
+.validatedBtn svg {
+	height: 22px;
+	margin-right: 0.5rem;
+	fill: var(--secondary-color);
+}
+
+.orders .btnDeleteConf {
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 900px) {
+	.orders {
+		margin-left: 220px;
+		width: calc(100vw - 220px);
+	}
+
+	.orders .orderHead {
+		display: flex;
+		height: 100px;
+		flex-direction: row;
+		width: 80%;
+	}
+
+	.orders .contact {
+		align-items: end;
+	}
+
+	.orders .totalCart {
+		font-size: var(--subtitle-font-size);
+		font-weight: var(--logo-weight);
+		color: #696969;
+	}
+	
+	.orders .totalCart span {
+		color: var(--primary-color);
+		font-size: 1.8rem;
+	}
+
+	.orders .title,
+	.orders .quantity,
+	.orders .totalPrice {
+		font-size: var(--subtitle-font-size);
+	}
+
+	.orders .price {
+		font-size: 1.2rem;;
+	}
+
+	.orders .time,
+	.orders .date {
+		font-size: var(--subtitle-font-size);
+	}
+
+	.user .btnDeleteConf {
+		top: 1.2rem;
+		right: 1.2rem;
+	}
+}
+
+.user .reservationCardBody .reservationLabelUser svg {
+	cursor: auto !important;
+}
+
+.user .userCardBody {
+	height: 120px;
+	width: 100%;
+}
+
+.user .reservationCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.user .reservationCard button {
+	margin-top: 0;
+}
+
+.userProfil form {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.userProfil form button {
+	width: 150px;
+}
+
+.user .reservationLabelUser svg {
+	cursor: auto;
+}
+
+.userProfil .orderSelect {
+	width: 100%;
+}
+
+.userProfil .orderSelect select:nth-child(odd) {
+	width: 70%;
+}
+
+.userProfil .orderSelect select:nth-child(even) {
+	width: 25%;
+}
+
+.userProfil label {
+	margin: .5rem;
+	font-weight: var(--logo-weight);
+	color: #696969;
+	font-style: italic;
+}
+
+/* Commentaires */
+
+.userReviews {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+}
+
+.userReviews .reviewContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	margin: 1rem 0 2rem 0;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.247);
+}
+
+.userReviews .reviewBody {
+	text-align: center;
+	padding: 1rem;
+	line-height: 1.5rem;
+}
+
+.userReviews h3 {
+	font-size: 1.5rem;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'UnicaOne';
+	color: var(--tertiary-color);
+	margin: 1rem;
+}
+
+.userReviews .btnDeleteConf {
+	position: initial;
+	width: auto;
+	height: auto;
+}
+
+.userReviews .reviewSvg {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	fill: #A1A1A1;
+}
+
+.userReviews .reviewBody .name {
+	margin-top: 1rem;
+	font-style: italic;
+	font-weight: var(--bold-weight);
+}
+
+.userReviews label{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+.userReviews label svg {
+	cursor: pointer;
+	fill: #696969;
+	height: 30px;
+	width: 30px;
+}
+
+.reviewContainer .svgContainer {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	height: 30px;
+	width: 30px;
+}
+
+.reviewContainer .reviewSvg {
+	height: 30px;
+	width: 30px;
+	position: initial;
+}
+
+.reviewContainer input {
+	display: none;
+}
+
+@media (min-width: 900px) {
+	.userReviews {
+		margin-left: 220px;
+		width: calc(100vw - 220px);
+	}
+
+	.userReviews h3 {
+		font-size: 2rem;
+		text-align:left;
+	}
+
+	.userReviews label {
+		bottom: 15px;
+		right: 30px;
+	}
+
+	.userReviews label svg {
+		height: 50px;
+		width: 50px;
+	}
+
+	.reviewContainer .svgContainer {
+		bottom: 15px;
+		right: 30px;
+		height: 50px;
+		width: 50px;
+	}
+	
+	.reviewContainer .reviewSvg {
+		height: 50px;
+		width: 50px;
+	}
+}
+
+/* Membres Admin */
+
+.users {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-left: 0;
+}
+
+.users .userContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.users .userCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 335px;
+	margin: 1rem;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.247);
+	padding: 0.5rem;
+}
+
+.users .userCardHead {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: .5rem;
+}
+
+.users .userCardBody {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	padding: 1rem;
+}
+
+.users .userCardHead .name {
+	font-size: 1.4rem;
+	color: var(--tertiary-color);
+	font-weight: var(--bold-weight);
+}
+
+.users .userCardBody .email {
+	margin-bottom: .5rem;
+}
+
+.users .userCard a {
+	color: var(--primary-color);
+}
+
+.users .userCard a:hover {
+	color: var(--tertiary-color);
+}
+
+.users .userCard a:hover svg {
+	fill: var(--tertiary-color);
+}
+
+.users .btnDeleteConf {
+	margin: 0;
+	padding: .5rem;
+}
+
+.users button {
+	margin: 0;
+}
+
+.users form {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.users form input {
+	margin: 1rem;
+}
+
+/* .users form.searchBar {
+	width: 30%;
+	display: flex;
+	flex-direction: row;
+	align-self: flex-end;
+	margin-right: ;
+} */
+
+.users form.searchBar {
+	width: 80%;
+	display: flex;
+	flex-direction: row;
+}
+
+.users .searchBar button {
+	padding: 0.3rem 0.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.users .searchBar button svg {
+	fill: var(--secondary-color);
+	height: 20px;
+	padding: 0;
+}
+
+.users .searchBar button:hover svg {
+	fill: var(--tertiary-color);
+}
+
+@media (min-width: 900px) {
+	.users {
+		margin-left: 220px;
+		width: calc(100vw - 220px);
+	}
+
+	.users form.searchBar {
+		width: 30%;
+		display: flex;
+		flex-direction: row;
+		align-self: flex-end;
+		margin-right: 2rem;
+	}
+}
