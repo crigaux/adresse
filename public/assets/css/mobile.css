@@ -1067,9 +1067,8 @@ label {
         text-transform: uppercase;
         text-decoration: none;
         font-size: 1.8rem;
-        color: #A57D5C;
+        color: var(--blueTan);
         margin: 0.5rem 1.5rem;
-        text-shadow: 2px 2px 2px black;
     }
     
     .menuLinks .connect {
@@ -1079,7 +1078,7 @@ label {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: #A57D5C;
+        background-color: var(--mediumBlue);
         width: 100%;
         height: 80px;
     }
