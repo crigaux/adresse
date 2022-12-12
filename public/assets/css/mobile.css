@@ -4,7 +4,8 @@
     --accentuationRed: #E63946;
     --backgroundWhite: #F1FAEE;
     --blueTan: #A8DADC;
-    --mediumBlue: #457B9D;
+    /* Blue #457B9D */
+    --mediumBlue: #A57D5C;
     --darkBlue: #1D3557;
     --bgColor: #f3f3f3;
     --fontColorDark: #333;
@@ -50,7 +51,7 @@ button {
     font-size: 1.2rem;
     margin: 1rem 0;
     cursor: pointer;
-    border: solid .5px var(--darkBlue);
+    border: solid .5px var(--mediumBlue);
     transition: all .3s;
 }
 
@@ -59,8 +60,8 @@ button:hover {
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
-    background-color: var(--darkBlue);
-    color: var(--backgroundWhite);
+    background-color: var(--backgroundWhite);
+    color: var(--mediumBlue);
 }
 
 .whiteBrushTop {
@@ -401,7 +402,7 @@ select {
 }
 
 input[type='checkbox'] {
-    accent-color: #A57D5C;
+    accent-color: var(--mediumBlue);
     cursor: pointer;
     height: 25px;
 }
@@ -657,7 +658,7 @@ option {
 
 .reviewPreview h4 {
     text-align: center;
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 #displayedReview h3 {
@@ -942,7 +943,7 @@ footer .cgu a:nth-child(1) {
 }
 
 .inscriptionForm label > a:hover {
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 legend {
@@ -1143,7 +1144,7 @@ label {
 .container404 h1 {
     font-family: 'Dancing', Courier, monospace;
     font-weight: 500;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
@@ -1228,7 +1229,7 @@ label {
 .logOutIcon svg {
     width: 20px;
     height: 20px;
-    fill: #A57D5C;
+    fill: var(--mediumBlue);
 }
 
 .logOutIconDesk svg {
@@ -1264,7 +1265,7 @@ label {
 }
 
 .cgu h2 {
-    color: #A57D5C;
+    color: var(--mediumBlue);
     margin-bottom: 2rem;
     font-size: 2rem;
     text-align: center;

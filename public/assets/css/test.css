@@ -17,7 +17,7 @@
 :root {
 	--primary-color : #000;
 	--secondary-color : #fff;
-	--tertiary-color : #A57D5C;
+	--tertiary-color : var(--mediumBlue);
 	--title-font-size : 3rem;
 	--subtitle-font-size : 1.5rem;
 	--text-font-size : 1rem;
@@ -174,8 +174,8 @@ main {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: #A57D5C;
-	border: solid 2.5px #A57D5C;
+	color: var(--mediumBlue);
+	border: solid 2.5px var(--mediumBlue);
 	font-weight: var(--bold-weight);
 }
 
@@ -262,8 +262,8 @@ main {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: #A57D5C;
-	border: solid 2.5px #A57D5C;
+	color: var(--mediumBlue);
+	border: solid 2.5px var(--mediumBlue);
 	font-weight: var(--medium-weight);
 }
 
@@ -300,7 +300,7 @@ select:focus {
 
 button {
 	font-family: 'UnicaOne';
-	background-color: #A57D5C;
+	background-color: var(--mediumBlue);
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 	border: none;
@@ -310,7 +310,7 @@ button {
 	font-size: 1.2rem;
 	margin: 1rem 0;
 	cursor: pointer;
-	border: solid 2.5px #A57D5C;
+	border: solid 2.5px var(--mediumBlue);
 	transition: all .3s;
 }
 
@@ -320,8 +320,8 @@ button:hover {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: #A57D5C;
-	border: solid 2.5px #A57D5C;
+	color: var(--mediumBlue);
+	border: solid 2.5px var(--mediumBlue);
 }
 
 .dishHead {
