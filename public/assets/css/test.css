@@ -1316,3 +1316,29 @@ button:hover {
 		margin-right: 2rem;
 	}
 }
+
+/* Bannière */
+
+.bannerForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
+.bannerForm label {
+	margin-top: 3rem;
+	text-align: center;
+}
+
+.bannerForm input {
+	width: 50%;
+	margin: 2rem 0;
+}
+
+.bannerPreview {
+	width: 60%;
+	height: 300px;
+	object-fit: cover;
+}

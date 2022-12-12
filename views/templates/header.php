@@ -12,7 +12,7 @@
     <?= isset($isOnMenu) ? '<link rel="stylesheet" href="../../public/assets/css/menu.css">' : ''; ?>
     <?= isset($isOnReview) ? '<link rel="stylesheet" href="../../public/assets/css/review.css">' : ''; ?>
     <?= isset($isOnGalery) ? '<link rel="stylesheet" href="../../public/assets/css/galery.css">' : ''; ?>
-    <title>L'adresse</title>
+    <title>L'ADRESSE</title>
 </head>
 
 <body>
@@ -134,7 +134,7 @@
 
         <!-- Bannière -->
         <a href="../accueil">
-            <h1>L'adresse</h1>
+            <h1>L'ADRESSE</h1>
         </a>
         <div class="whiteBrushBottom"></div>
 

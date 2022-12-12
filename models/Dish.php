@@ -9,9 +9,10 @@
 		private int $active;
 		private int $id_users;
 		private int $id_dishes_types;
+		private int $image;
 		private PDO $pdo;
 
-		public function __construct($title, $price, $description, $id_users, $id_dishes_types, $active = 1) {
+		public function __construct($title, $price, $description, $id_users, $id_dishes_types, $image, $active = 1) {
 
 			$this->pdo = Database::getInstance();
 
@@ -19,6 +20,7 @@
 			$this->price = $price;
 			$this->description = $description;
 			$this->active = $active;
+			$this->image = $image;
 			$this->id_users = $id_users;
 			$this->id_dishes_types = $id_dishes_types;
 		}
@@ -68,8 +70,8 @@
 		 */
 		public function create() {
 			$query = 
-			"INSERT INTO `dishes` (`title`, `price`, `description`, `active`, `id_users`, `id_dishes_types`) 
-			VALUES (:title, :price, :description, :active, :id_users, :id_dishes_types);";
+			"INSERT INTO `dishes` (`title`, `price`, `description`, `active`, `id_users`, `id_dishes_types`, `image`) 
+			VALUES (:title, :price, :description, :active, :id_users, :id_dishes_types, :image);";
 
 			$sth = $this->pdo->prepare($query);
 
@@ -77,6 +79,7 @@
 			$sth->bindValue(':price', $this->price);
 			$sth->bindValue(':description', $this->description);
 			$sth->bindValue(':active', $this->active, PDO::PARAM_BOOL);
+			$sth->bindValue(':image', $this->image, PDO::PARAM_INT);
 			$sth->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
 			$sth->bindValue(':id_dishes_types', $this->id_dishes_types, PDO::PARAM_INT);
 
@@ -159,7 +162,7 @@
 		public function update($id):bool {
 			$query = 
 			"UPDATE `dishes` 
-			SET `title` = :title, `price` = :price, `description` = :description, `active` = :active, `id_users` = :id_users, `id_dishes_types` = :id_dishes_types 
+			SET `title` = :title, `price` = :price, `description` = :description, `active` = :active, `id_users` = :id_users, `id_dishes_types` = :id_dishes_types, `image` = :image 
 			WHERE `id` = :id;";
 
 			$sth = $this->pdo->prepare($query);
@@ -168,6 +171,7 @@
 			$sth->bindValue(':price', $this->price);
 			$sth->bindValue(':description', $this->description);
 			$sth->bindValue(':active', $this->active, PDO::PARAM_INT);
+			$sth->bindValue(':image', $this->image, PDO::PARAM_INT);
 			$sth->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
 			$sth->bindValue(':id_dishes_types', $this->id_dishes_types, PDO::PARAM_INT);
 			$sth->bindValue(':id', $id, PDO::PARAM_INT);
