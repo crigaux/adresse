@@ -4,7 +4,7 @@
 	define('USER', 'annexe_admin');
 	define('PWD', ']QbMEVFWOFDcVfQA');
 
-	// define('DSN', 'mysql:host=127.0.0.1:3306;dbname=u993442228_annexe;charset=utf8');
+	// define('DSN', 'mysql:host=127.0.0.1:3306;dbname=u993442228_adresse;charset=utf8');
 	// define('USER', 'u993442228_admin');
 	// define('PWD', 'Luckydube76260,;:!');
 
@@ -22,4 +22,4 @@
 
 	// Définition de 'secret'
 
-	define('SECRET', 'Annexe_Restaurant753951');
+	define('SECRET', 'adresse_Restaurant753951');

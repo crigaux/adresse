@@ -1,10 +1,10 @@
         <footer>
             <div class="whiteBrushTop"></div>
-            <a href="#"><h2>L'annexe</h2></a>
+            <a href="#"><h2>L'adresse</h2></a>
             <div class="contact">
                 <a href="https://www.google.fr/maps/dir/La+Manu+-+Ecole+sup%C3%A9rieure+des+m%C3%A9tiers+du+num%C3%A9rique,+70+Rue+des+Jacobins,+80000+Amiens/amiens/@49.8920361,2.2947642,16z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x47e7857c0e87f5fb:0x37fb21b742d12b66!2m2!1d2.3014757!2d49.8900054!1m5!1m1!1s0x47e78413d78b760b:0x40af13e816220e0!2m2!1d2.295753!2d49.894067" target="_blank" class="adressContact">12 rue de la Paix 80000 Amiens</a>
                 <a href="tel:0312345678" class="phoneContact">03 12 34 56 78</a>
-                <a href="mail:contact.annexe.restaurant@gmail.com" class="mailContact">contact@contact.fr</a>
+                <a href="mail:contact.adresse.restaurant@gmail.com" class="mailContact">contact@contact.fr</a>
             </div>
             <div class="social">
                 <a href="https://www.instagram.com/lamanuformation/?hl=fr" target="_blank">
@@ -18,7 +18,7 @@
                 <a href="cgu">Mentions légales</a>
             </div>
             <div class="legal">
-                <div>Copyright © <?=date('Y', time())?> L'annexe. Tous droits réservés.</div>
+                <div>Copyright © <?=date('Y', time())?> L'adresse. Tous droits réservés.</div>
             </div>
         </footer>
     </main>

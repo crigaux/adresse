@@ -10,7 +10,7 @@
     
             for ($i=0; $i < count($files); $i++) { 
                 if($files[$i] != '.' && $files[$i] != '..') {
-                    echo "<div><img src=\"$dir_path$files[$i]\" alt=\"Photo de plat du restaurant l'Annexe\"></div>";
+                    echo "<div><img src=\"$dir_path$files[$i]\" alt=\"Photo de plat du restaurant l'adresse\"></div>";
                 }
             }
         }

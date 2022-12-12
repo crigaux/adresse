@@ -11,7 +11,7 @@
     <?= isset($isOnMenu) ? '<link rel="stylesheet" href="../../public/assets/css/menu.css">' : '' ; ?>
     <?= isset($isOnReview) ? '<link rel="stylesheet" href="../../public/assets/css/review.css">' : '' ; ?>
     <?= isset($isOnAccount) ? '<link rel="stylesheet" href="../../public/assets/css/account.css">' : '' ; ?>
-    <title>L'annexe</title>
+    <title>L'adresse</title>
 </head>
 <body>
     <div class="overlayMenuBurger">

@@ -6,13 +6,13 @@
 
 		<h3>MENTIONS LÉGALES</h3>
 
-		<p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site l'annexe.fr l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
+		<p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site l'adresse.fr l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
 
-		<p>Propriétaire : L'annexe – 1 rue de la République – 75003 Paris – France</p>
+		<p>Propriétaire : L'adresse – 1 rue de la République – 75003 Paris – France</p>
 
-		<p>Créateur : L'annexe</p>
+		<p>Créateur : L'adresse</p>
 
-		<p>Responsable publication : L'annexe – <a href="mailto:contact.annexe.restaurant@gmail.com">contact.annexe.restaurant@gmail.com</a><p>
+		<p>Responsable publication : L'adresse – <a href="mailto:contact.adresse.restaurant@gmail.com">contact.adresse.restaurant@gmail.com</a><p>
 
 		<p>Le responsable publication est une personne physique ou une personne morale.</p>
 
@@ -21,7 +21,7 @@
 
 		<h3>APERÇU</h3>
 
-		<p>Ce site web est exploité par L'annexe. Partout sur le site, nous employons les termes « nous », « notre » et « nos » en référence à L'annexe. Ce site web, y compris l'ensemble des informations, outils et services auquel il donne accès, est offert par L'annexe à l'utilisateur que vous êtes, à condition que vous acceptiez la totalité des modalités, conditions, politiques et avis stipulés ici.</p>
+		<p>Ce site web est exploité par L'adresse. Partout sur le site, nous employons les termes « nous », « notre » et « nos » en référence à L'adresse. Ce site web, y compris l'ensemble des informations, outils et services auquel il donne accès, est offert par L'adresse à l'utilisateur que vous êtes, à condition que vous acceptiez la totalité des modalités, conditions, politiques et avis stipulés ici.</p>
 
 		<p>En visitant notre site et/ou en achetant quelque chose auprès de notre entreprise, vous prenez part à notre « Service » et acceptez d'être lié(e) par les modalités et conditions suivantes (« Conditions générales », « Conditions d'utilisation »), y compris par les modalités, conditions et politiques mentionnées aux présentes et/ou accessibles en hyperlien. Les présentes Conditions d'utilisation s'appliquent à tous les utilisateurs du Site, y compris, sans s'y limiter, aux individus qui sont des visiteurs, des fournisseurs, des clients, des marchands et/ou des fournisseurs de contenu.</p>
 		<p>Veuillez lire attentivement les présentes Conditions d'utilisation avant d'accéder à notre site web et de l'utiliser. En accédant à une quelconque partie du Site ou en l'utilisant, vous acceptez d'être lié(e) par les présentes Conditions d'utilisation. Si vous n'acceptez pas la totalité des modalités et conditions du présent accord, vous ne pourrez peut-être pas accéder au site web ou utiliser ses services. Si les présentes Conditions d'utilisation sont considérées comme une offre, leur acceptation se limite expressément à elles.</p>
@@ -107,12 +107,12 @@
 
 		<p>Vous acceptez que, de temps à autre, nous puissions retirer le Service pour des périodes indéterminées ou l'annuler à tout moment et sans préavis.</p>
 		<p>Vous convenez expressément que votre utilisation du Service, ou votre incapacité à utiliser celui-ci, est à votre seul risque. Le Service ainsi que tous les produits et services qui vous sont fournis par le biais de celui-ci sont (sauf mention expresse de notre part) fournis « tels quels » et « sous réserve de disponibilité » pour votre utilisation, et ce, sans représentation, garanties ou conditions d'aucune sorte, soit expresses soit implicites, y compris toutes les garanties ou conditions implicites de commercialisation ou de qualité marchande, d’adaptation à un usage particulier, de durabilité, de titre et d’absence de contrefaçon.</p>
-		<p>L'annexe, nos directeurs, responsables, employés, sociétés affiliées, agents, contractants, stagiaires, fournisseurs, prestataires de services et concédants ne peuvent en aucun cas être tenus responsables de toute blessure, perte, réclamation, ou de quelconques dommages directs, indirects, accessoires, punitifs, spéciaux ou consécutifs, y compris mais sans s'y limiter, de la perte de profits, revenus, économies ou données, de coûts de remplacement ou autres dommages similaires, qu’ils soient contractuels, délictuels (même en cas de négligence), de responsabilité stricte ou autre, résultant de votre utilisation du Service ou de tout service ou produit recourant à celui-ci, ou de toute autre réclamation liée de quelque manière que ce soit à votre utilisation du Service ou de tout produit, y compris mais sans s'y limiter, à des erreurs ou omissions dans un contenu, ou à de quelconques pertes ou dommages découlant de l’utilisation du Service ou d'un contenu (ou produit) publié, transmis ou rendu accessible par le biais du Service, et ce, même si vous avez été averti(e) de la possibilité qu’ils surviennent.</p>
+		<p>L'adresse, nos directeurs, responsables, employés, sociétés affiliées, agents, contractants, stagiaires, fournisseurs, prestataires de services et concédants ne peuvent en aucun cas être tenus responsables de toute blessure, perte, réclamation, ou de quelconques dommages directs, indirects, accessoires, punitifs, spéciaux ou consécutifs, y compris mais sans s'y limiter, de la perte de profits, revenus, économies ou données, de coûts de remplacement ou autres dommages similaires, qu’ils soient contractuels, délictuels (même en cas de négligence), de responsabilité stricte ou autre, résultant de votre utilisation du Service ou de tout service ou produit recourant à celui-ci, ou de toute autre réclamation liée de quelque manière que ce soit à votre utilisation du Service ou de tout produit, y compris mais sans s'y limiter, à des erreurs ou omissions dans un contenu, ou à de quelconques pertes ou dommages découlant de l’utilisation du Service ou d'un contenu (ou produit) publié, transmis ou rendu accessible par le biais du Service, et ce, même si vous avez été averti(e) de la possibilité qu’ils surviennent.</p>
 		<p>Du fait que certains États ou juridictions ne permettent pas d’exclure ou de limiter la responsabilité quant aux dommages consécutifs ou accessoires, notre responsabilité dans ces États ou juridictions sera limitée dans la mesure maximale permise par la loi.</p>
 
 		<h3>INDEMNISATION</h3>
 
-		<p>Vous acceptez d’indemniser, de défendre et de tenir L'annexe et notre société mère, nos filiales, sociétés affiliées, partenaires, responsables, directeurs, agents, contractants, concédants, prestataires de services, sous-traitants, fournisseurs, stagiaires et employés, quittes de toute réclamation ou demande, y compris d'honoraires raisonnables d’avocat, émise par un quelconque tiers à cause de ou consécutivement à votre violation des présentes Conditions d’utilisation ou des documents auxquels elles font référence, ou à votre violation de quelconques lois ou droits d’un tiers.</p>
+		<p>Vous acceptez d’indemniser, de défendre et de tenir L'adresse et notre société mère, nos filiales, sociétés affiliées, partenaires, responsables, directeurs, agents, contractants, concédants, prestataires de services, sous-traitants, fournisseurs, stagiaires et employés, quittes de toute réclamation ou demande, y compris d'honoraires raisonnables d’avocat, émise par un quelconque tiers à cause de ou consécutivement à votre violation des présentes Conditions d’utilisation ou des documents auxquels elles font référence, ou à votre violation de quelconques lois ou droits d’un tiers.</p>
 		<h3>DISSOCIABILITÉ</h3>
 
 		<p>Dans le cas où une quelconque disposition des présentes Conditions d’utilisation est jugée illégale, nulle ou inapplicable, cette disposition sera néanmoins applicable dans la pleine mesure permise par la loi, et la partie non applicable sera considérée comme étant dissociée de ces Conditions d’utilisation, sans que ce jugement n'affecte la validité et l’applicabilité des autres dispositions.</p>
@@ -146,6 +146,6 @@
 
 		<h3>COORDONNÉES</h3>
 
-		<p>Les questions relatives aux Conditions d’utilisation doivent nous être envoyées à contact.annexe.restaurant@gmail.com.</p>
+		<p>Les questions relatives aux Conditions d’utilisation doivent nous être envoyées à contact.adresse.restaurant@gmail.com.</p>
 	</div>
 </div>

@@ -16,6 +16,8 @@ any('/connexion', 'controllers/connectionCtrl.php');
 get('/disconnect', 'controllers/disconnectCtrl.php');
 // Mot de passe oublié
 any('/oubli-mot-de-passe', 'controllers/forgotPwdCtrl.php');
+// Mot de passe oublié
+any('/admin/banner', 'controllers/admin/dbBannerCtrl.php');
 
 // #############################
 // Gestion du profil utilisateur

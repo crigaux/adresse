@@ -55,13 +55,13 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/commentaire/edit/validate/' . $id) {
 					$mail->isSMTP();                                            //Send using SMTP
 					$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 					$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-					$mail->Username   = 'contact.annexe.restaurant@gmail.com';                     //SMTP username
+					$mail->Username   = 'contact.adresse.restaurant@gmail.com';                     //SMTP username
 					$mail->Password   = 'fldfoxotvybsynuo';                               //SMTP password
 					$mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
 					$mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 					//Recipients
-					$mail->setFrom('contact.annexe.restaurant@gmail.com', 'Restaurant l\'Annexe');
+					$mail->setFrom('contact.adresse.restaurant@gmail.com', 'Restaurant l\'adresse');
 					$mail->addAddress($validate);     //Add a recipient
 					// $mail->addAddress('ellen@example.com');               //Name is optional
 					// $mail->addReplyTo('info@example.com', 'Information');
