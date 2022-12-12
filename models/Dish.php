@@ -201,4 +201,16 @@
 			}
 			return false;
 		}
+
+		// Méthode pour récupérer tous les types de plats
+		public static function dishTypes():int {
+			$pdo = Database::getInstance();
+
+			$query = "SELECT COUNT(*) AS typesNb FROM `dishes_types`;";
+
+			if($sth = $pdo->query($query)) {
+				return $sth->fetch()->typesNb;
+			}
+			return false;
+		}
 	}
