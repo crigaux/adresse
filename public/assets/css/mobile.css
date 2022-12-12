@@ -202,7 +202,7 @@ h1 {
     font-size: 5rem;
     color: var(--mediumBlue);
     text-shadow: 3px 3px 2px var(--blueTan);
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     cursor: pointer;
 }
 
@@ -301,6 +301,10 @@ header .whiteBrush {
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/banner.png');
+}
+
+.containerButton a:first-of-type {
+    margin-right: 1.5rem;
 }
 
 .reservation h2 {

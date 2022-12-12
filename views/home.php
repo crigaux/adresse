@@ -19,9 +19,16 @@
     ?>
         <h2>Reservation</h2>
         <h3 class="logNeeded">Connectez-vous pour réserver</h3>
-        <a href="/connexion">
-            <button>Connexion</button>
-        </a>
+        <div class="containerButton">
+            <a href="/connexion">
+                <button>Connexion</button>
+            </a>
+            <a href="https://beefast.coopcycle.org/fr/restaurant/13-l-adresse" target="_blank">
+                <button>
+                    Livrez moi
+                </button>
+            </a>
+        </div>
     <?php
 
     } else {
@@ -33,6 +40,11 @@
             <div class="reservationType">
                 <button>Sur place</button>
                 <button class="inactive">À emporter</button>
+                <a href="https://beefast.coopcycle.org/fr/restaurant/13-l-adresse" target="_blank">
+                    <button class="inactive">
+                        Livrez moi
+                    </button>
+                </a>
             </div>
 
             <!-- Message pour valider l'ajout d'un rendez vous -->
@@ -127,7 +139,6 @@
                 <div class="addDish">+</div>
 
                 <input type="hidden" name="form" value="2">
-
                 <button type="submit">Réserver</button>
             </form>
         <?php

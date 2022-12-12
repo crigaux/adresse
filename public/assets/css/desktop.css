@@ -168,14 +168,14 @@
     }
 
     .reservationType {
-        width: 70%;
+        width: 80%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
     }
 
     .reservationType button {
-        width: 40%;
         font-size: 1.4rem;
-        margin: 1rem 3rem;
-        width: 45%;
     }
 
     /*  ################################################################ 
