@@ -1,0 +1,4 @@
+User-agent: *
+
+#Disalow toute la partie du admin /admin/
+Disalow: /admin/

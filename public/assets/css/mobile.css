@@ -13,12 +13,12 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+    src: url('../fonts/Montserrat/Regular.ttf');
 }
 
 @font-face {
     font-family: 'Dancing';
-    src: url('../fonts/DancingScript/DancingScript-VariableFont_wght.ttf');
+    src: url('../fonts/DancingScript/Regular.ttf');
 }
 
 @font-face {
@@ -198,10 +198,9 @@ header p {
 }
 
 h1 {
-    font-family: 'Montserrat', Courier, monospace;
+    font-family: 'Dancing', Courier, monospace;
     font-size: 5rem;
-    color: var(--mediumBlue);
-    text-shadow: 3px 3px 2px var(--blueTan);
+    color: var(--textWhiteColor);
     margin-bottom: 1rem;
     cursor: pointer;
 }
