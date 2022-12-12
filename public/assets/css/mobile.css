@@ -1,3 +1,16 @@
+:root {
+    --textBlackColor: #000;
+    --textWhiteColor: #fff;
+    --accentuationRed: #E63946;
+    --backgroundWhite: #F1FAEE;
+    --blueTan: #A8DADC;
+    --mediumBlue: #457B9D;
+    --darkBlue: #1D3557;
+    --bgColor: #f3f3f3;
+    --fontColorDark: #333;
+    --fontColorLight: #f3f3f3;
+}
+
 @font-face {
     font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
@@ -21,28 +34,23 @@
 }
 
 main {
-    --bgColor: #f3f3f3;
-    --fontColorDark: #333;
-    --fontColorLight: #f3f3f3;
-
     font-family: 'Montserrat';
-
     overflow: hidden;
 }
 
 button {
     font-family: 'UnicaOne';
-    background-color: #A57D5C;
+    background-color: var(--mediumBlue);
     text-transform: uppercase;
     padding: 0.5rem 1rem;
     border: none;
-    color: #f3f3f3;
+    color: var(--textWhiteColor);
     border-bottom-right-radius: 7px;
     border-top-left-radius: 7px;
     font-size: 1.2rem;
     margin: 1rem 0;
     cursor: pointer;
-    border: solid 2.5px #A57D5C;
+    border: solid .5px var(--darkBlue);
     transition: all .3s;
 }
 
@@ -51,9 +59,8 @@ button:hover {
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
-    background-color: #f3f3f3;
-    color: #A57D5C;
-    border: solid 2.5px #A57D5C;
+    background-color: var(--darkBlue);
+    color: var(--backgroundWhite);
 }
 
 .whiteBrushTop {
@@ -82,7 +89,7 @@ header .whiteBrushBottom {
 
 .stars {
     text-align: center;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
@@ -191,10 +198,10 @@ header p {
 }
 
 h1 {
-    font-family: 'UnicaOne', Courier, monospace;
+    font-family: 'Montserrat', Courier, monospace;
     font-size: 5rem;
-    color: #A57D5C;
-    text-shadow: 3px 3px 2px #f3f3f3;
+    color: var(--mediumBlue);
+    text-shadow: 3px 3px 2px var(--blueTan);
     margin-bottom: 4rem;
     cursor: pointer;
 }
@@ -240,7 +247,7 @@ header .whiteBrush {
     transform:translate(-60%, -45%);
     width: 270px;
     height: 210px;
-    border-radius: 40px;
+    border-radius: 5px;
     z-index: 3;
     object-fit: cover;
 }
@@ -253,7 +260,7 @@ header .whiteBrush {
     width: 210px;
     height: 320px;
     object-fit: cover;
-    border-radius: 40px;
+    border-radius: 5px;
     z-index: 2;
 }
 
@@ -268,18 +275,20 @@ header .whiteBrush {
 .presentation .about h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 .presentation .about h3 {
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
+    color: var(--fontColorDark);
 }
 
 .presentation .about p {
     font-size: 1rem;
     line-height: 1.7rem;
     text-align: center;
+    color: var(--textBlackColor);
 }
 
 /*  ################################################################ 
@@ -297,7 +306,7 @@ header .whiteBrush {
 .reservation h2 {
     font-size: 2rem;
     margin-top: 2rem;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     text-align: center;
 }
 
@@ -460,7 +469,7 @@ option {
 .ourForces h2 {
     font-size: 2rem;
     margin: 2rem 0 0.5rem 0;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     text-align: center;
 }
 
@@ -494,7 +503,7 @@ option {
 }
 
 .ourForces .featureContainer div:hover h4 {
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 .ourForces .featureContainer div h4 {
@@ -522,7 +531,7 @@ option {
 .menuPreview h2 {
     font-size: 2rem;
     margin: 1rem 0 0.5rem 0;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     text-align: center;
     margin-top: 1.5rem;
 }
@@ -557,7 +566,7 @@ option {
 }
 
 .menuPreview .menuPreviewContainer .categoriesItem:hover {
-    color: #A57D5C;
+    color: var(--blueTan);
     transition: .3s;
 }
 
@@ -583,7 +592,7 @@ option {
 }
 
 .menuPreview .catDishiesItem h4:hover {
-    color: #A57D5C;
+    color: var(--blueTan);
 }
 
 .menuPreview .catDishiesItem p {
@@ -595,7 +604,7 @@ option {
 
 .menuPreview .catDishiesItem span {
     font-family: 'Dancing', Courier, monospace;
-    color: #A57D5C;
+    color: var(--blueTan);
     font-weight: 600;
 }
 
@@ -619,7 +628,7 @@ option {
 .reviewPreview h2 {
     font-size: 2rem;
     margin: 1rem 0 0.5rem 0;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     text-align: center;
     margin-top: 1.5rem;
 }
@@ -694,7 +703,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 footer .contact {
@@ -712,7 +721,7 @@ footer .contact a {
 }
 
 footer .contact a:hover {
-    color: #A57D5C;
+    color: var(--mediumBlue);
 }
 
 footer .social img{
@@ -727,7 +736,7 @@ footer .social svg {
 }
 
 footer .social svg:hover {
-    fill: #A57D5C;
+    fill: var(--mediumBlue);
 }
 
 footer .legal {
@@ -928,7 +937,7 @@ footer .cgu a:nth-child(1) {
 legend {
     font-family: 'Dancing', Courier, monospace;
     font-weight: 500;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
