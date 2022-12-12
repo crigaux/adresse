@@ -106,7 +106,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../img/banner.png');
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('../banner/banner.jpg');
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -291,7 +291,7 @@ header .whiteBrush {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/banner.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../banner/banner.jpg');
 }
 
 .reservation h2 {
@@ -516,7 +516,7 @@ option {
     ################################################################*/
 
 .menuPreview {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/banner.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../banner/banner.jpg');
 }
 
 .menuPreview h2 {
@@ -769,7 +769,7 @@ footer .cgu a:nth-child(1) {
 }
 
 .connectForm, .inscriptionForm {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('../banner/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -845,7 +845,7 @@ footer .cgu a:nth-child(1) {
 }
 
 .inscriptionForm {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('../banner/banner.jpg');
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -1103,7 +1103,7 @@ label {
     height: 100vh;
     width: 100vw;
     background: #000;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('../img/banner.png');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('../banner/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
