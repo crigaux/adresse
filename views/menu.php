@@ -5,16 +5,18 @@
         <div class="foodCardContainer">
             <?php
                 foreach ($starters as $starter) {
-                    echo '<div class="foodCard">
-                            <div class="foodCardImg">
-                                <img src="../public/assets/galery/'. strtolower(str_replace(' ', '', $starter->id)) .'.jpg" alt="'. $starter->title .'">
-                            </div>
-                            <div class="foodCardDesc">
-                                <h3>' . $starter->title . '</h3>
-                                <h4>' . $starter->price . '€</h4>
-                                <p>' . $starter->description . '</p>
-                            </div>
-                        </div>';
+            ?>
+                    <div class="foodCard">
+                        <div class="foodCardImg">
+                            <img src=<?= ($starter->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $starter->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $starter->title ;?>">
+                        </div>
+                        <div class="foodCardDesc">
+                            <h3><?= $starter->title ?></h3>
+                            <h4><?= $starter->price ?>€</h4>
+                            <p><?= $starter->description ?></p>
+                        </div>
+                    </div>
+            <?php
                 }
             ?>
         </div>
@@ -27,18 +29,20 @@
         <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
         
         <div class="foodCardContainer">
-            <?php
+        <?php
                 foreach ($dishes as $dish) {
-                    echo '<div class="foodCard">
-                            <div class="foodCardImg">
-                                <img src="../public/assets/galery/'. strtolower(str_replace(' ', '', $dish->id)) .'.jpg" alt="'. $dish->title .'">
-                            </div>
-                            <div class="foodCardDesc">
-                                <h3>' . $dish->title . '</h3>
-                                <h4>' . $dish->price . '€</h4>
-                                <p>' . $dish->description . '</p>
-                            </div>
-                        </div>';
+            ?>
+                    <div class="foodCard">
+                        <div class="foodCardImg">
+                            <img src=<?= ($dish->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $dish->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $dish->title ;?>">
+                        </div>
+                        <div class="foodCardDesc">
+                            <h3><?= $dish->title ?></h3>
+                            <h4><?= $dish->price ?>€</h4>
+                            <p><?= $dish->description ?></p>
+                        </div>
+                    </div>
+            <?php
                 }
             ?>
         </div>
@@ -50,18 +54,20 @@
         <h2>Desserts</h2>
         <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
         <div class="foodCardContainer">
-            <?php
+        <?php
                 foreach ($desserts as $dessert) {
-                    echo '<div class="foodCard">
-                            <div class="foodCardImg">
-                                <img src="../public/assets/galery/'. strtolower(str_replace(' ', '', $dessert->id)) .'.jpg" alt="'. $dessert->title .'">
-                            </div>
-                            <div class="foodCardDesc">
-                                <h3>' . $dessert->title . '</h3>
-                                <h4>' . $dessert->price . '€</h4>
-                                <p>' . $dessert->description . '</p>
-                            </div>
-                        </div>';
+            ?>
+                    <div class="foodCard">
+                        <div class="foodCardImg">
+                            <img src=<?= ($dessert->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $dessert->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $dessert->title ;?>">
+                        </div>
+                        <div class="foodCardDesc">
+                            <h3><?= $dessert->title ?></h3>
+                            <h4><?= $dessert->price ?>€</h4>
+                            <p><?= $dessert->description ?></p>
+                        </div>
+                    </div>
+            <?php
                 }
             ?>
         </div>

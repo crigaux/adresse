@@ -60,13 +60,9 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
 
 		$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/galery/";
 
-		if (empty($_FILES["img"]["name"])) {
-			$errors['img'] = 'Veuillez entrer une image';
-		} else if ($_FILES["img"]["type"] != 'image/jpeg') {
+		if (!empty($_FILES["img"]["name"]) && $_FILES["img"]["type"] != 'image/jpeg') {
 			$errors['img'] =  "Le fichier doit avoir l'extension JPG ou JPEG";
 		} else {
-
-
 			// Vérifie la taille du fichier (max 5Mo)
 			if ($_FILES["img"]["size"] > 5 * 1024 * 1024) {
 				$errors['img'] =  "Le fichier est trop volumineux.";
@@ -74,44 +70,53 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
 			// Vérifie si il y a eu une erreur
 			if (empty($errors)) {
 				$pdo = Database::getInstance();
-				$dish = new Dish($title, $price, $description, $_SESSION['user']->id, $dish_type);
+				if(empty($_FILES["img"]["name"])) {
+					$image = 1;
+				} else {
+					$image = 2;
+				}
+				$dish = new Dish($title, $price, $description, $_SESSION['user']->id, $dish_type, $image);
 				if ($dish->create() == true) {
-					$target_file = strtolower(str_replace(' ', '', $pdo->lastInsertId())) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
-					$target_path = $target_dir . $target_file;
-					$imageFileType = strtolower(pathinfo($target_path, PATHINFO_EXTENSION));
-					move_uploaded_file($_FILES["img"]["tmp_name"], $target_path);
+					if(!empty($_FILES["img"]["name"])) {
+						$target_file = strtolower(str_replace(' ', '', $pdo->lastInsertId())) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+						$target_path = $target_dir . $target_file;
+						$imageFileType = strtolower(pathinfo($target_path, PATHINFO_EXTENSION));
+						move_uploaded_file($_FILES["img"]["tmp_name"], $target_path);
 
-					$from = $_FILES['img']['tmp_name'];
-					$extension = pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+						$from = $_FILES['img']['tmp_name'];
+						$extension = pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+						
+						$dst_x = 0;
+						$dst_y = 0;
+						$src_x = 0;
+						$src_y = 0;
+						$dst_width = 500;
+						$src_width = getimagesize($target_path)[0];
+						$src_height = getimagesize($target_path)[1];
+						$dst_height = round(($dst_width * $src_height) / $src_width);
+						$dst_image = imagecreatetruecolor($dst_width, $dst_height);
+						$src_image = imagecreatefromjpeg($target_path);
 					
-					$dst_x = 0;
-					$dst_y = 0;
-					$src_x = 0;
-					$src_y = 0;
-					$dst_width = 500;
-					$src_width = getimagesize($target_path)[0];
-					$src_height = getimagesize($target_path)[1];
-					$dst_height = round(($dst_width * $src_height) / $src_width);
-					$dst_image = imagecreatetruecolor($dst_width, $dst_height);
-					$src_image = imagecreatefromjpeg($target_path);
-				
-					// Redimensionne
-					imagecopyresampled(
-						$dst_image,
-						$src_image,
-						$dst_x,
-						$dst_y,
-						$src_x,
-						$src_y,
-						$dst_width,
-						$dst_height,
-						$src_width,
-						$src_height
-					);
-				
-					// redimensionne l'image
-					$resampledDestination = $target_dir . $target_file;
-					imagejpeg($dst_image, $resampledDestination, 75);
+						// Redimensionne
+						imagecopyresampled(
+							$dst_image,
+							$src_image,
+							$dst_x,
+							$dst_y,
+							$src_x,
+							$src_y,
+							$dst_width,
+							$dst_height,
+							$src_width,
+							$src_height
+						);
+					
+						// redimensionne l'image
+						$resampledDestination = $target_dir . $target_file;
+						imagejpeg($dst_image, $resampledDestination, 75);
+					} else {
+						move_uploaded_file($_SERVER['DOCUMENT_ROOT'] . '/public/assets/baseImg/dish.jpg', $target_path);
+					}
 					
 					SessionFlash::set('message', 'Le plat a été ajouté.');
 					header('Location: /admin/menu#dish' . $pdo->lastInsertId());
@@ -143,7 +148,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/active/' . $id) {
 		exit();
 	}
 
-	$dishUpdate = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users, $dish->id_dishes_types, $active);
+	$dishUpdate = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users, $dish->id_dishes_types, $active, $dish->image);
 	$dishUpdate->update($id);
 
 	if ($active == 1) {
@@ -185,7 +190,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/' . $id) {
 
 		if (empty($errors)) {
 			// Met à jour le plat
-			$dishUpdated = new Dish($title, $price, $description, $dish->id_users,  $dish->id_dishes_types);
+			$dishUpdated = new Dish($title, $price, $description, $dish->id_users,  $dish->id_dishes_types, $dish->image);
 			$dishUpdated->update($id);
 
 			// Redirige vers la page des plats
@@ -227,7 +232,15 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/img/' . $id) {
 	$dish = Dish::getById($id);
 
 	$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/galery/";
-	if (!empty($_FILES["img"]["name"])) {
+	if(empty($_FILES["img"]["name"])) {
+		if (move_uploaded_file('/public/assets/baseImg/dish.jpg', $target_path)) {
+			SessionFlash::set('message', 'L\'image a bien été modifiée.');
+		} else {
+			SessionFlash::set('error', 'L\'image n\'a pas pu être modifiée.');
+		}
+	} else {
+		$dishUpdated = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users,  $dish->id_dishes_types, 2);
+		$dishUpdated->update($id);
 		$target_file = strtolower(str_replace(' ', '', $dish->id)) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
 		$target_path = $target_dir . $target_file;
 		$uploadOk = 1;
@@ -257,39 +270,39 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/img/' . $id) {
 		} else {
 			SessionFlash::set('error', 'L\'image n\'a pas pu être modifiée.');
 		}
-	}
 
-	$from = $_FILES['img']['tmp_name'];
-	$extension = pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+		$from = $_FILES['img']['tmp_name'];
+		$extension = pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+		
+		$dst_x = 0;
+		$dst_y = 0;
+		$src_x = 0;
+		$src_y = 0;
+		$dst_width = 500;
+		$src_width = getimagesize($target_path)[0];
+		$src_height = getimagesize($target_path)[1];
+		$dst_height = round(($dst_width * $src_height) / $src_width);
+		$dst_image = imagecreatetruecolor($dst_width, $dst_height);
+		$src_image = imagecreatefromjpeg($target_path);
 	
-	$dst_x = 0;
-	$dst_y = 0;
-	$src_x = 0;
-	$src_y = 0;
-	$dst_width = 500;
-	$src_width = getimagesize($target_path)[0];
-	$src_height = getimagesize($target_path)[1];
-	$dst_height = round(($dst_width * $src_height) / $src_width);
-	$dst_image = imagecreatetruecolor($dst_width, $dst_height);
-	$src_image = imagecreatefromjpeg($target_path);
-
-	// Redimensionne
-	imagecopyresampled(
-		$dst_image,
-		$src_image,
-		$dst_x,
-		$dst_y,
-		$src_x,
-		$src_y,
-		$dst_width,
-		$dst_height,
-		$src_width,
-		$src_height
-	);
-
-	// redimensionne l'image
-	$resampledDestination = $target_dir . $target_file;
-	imagejpeg($dst_image, $resampledDestination, 75);
+		// Redimensionne
+		imagecopyresampled(
+			$dst_image,
+			$src_image,
+			$dst_x,
+			$dst_y,
+			$src_x,
+			$src_y,
+			$dst_width,
+			$dst_height,
+			$src_width,
+			$src_height
+		);
+	
+		// redimensionne l'image
+		$resampledDestination = $target_dir . $target_file;
+		imagejpeg($dst_image, $resampledDestination, 75);
+	}
 
 	header('Location: /admin/menu');
 	exit();

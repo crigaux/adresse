@@ -58,9 +58,18 @@
                 <?= empty($errors['date']) ? '' : '<div class="errorMessage">' . $errors['date'] . '</div>' ?>
 
                 <select name="time" pattern="^[1-2]$" required>
-                    <option value="0">Choisissez votre créneaux</option>
-                    <option value="1" <?= (isset($time) && $time == 1) ? 'selected' : '' ?>>Midi</option>
-                    <option value="2" <?= (isset($time) && $time == 2) ? 'selected' : '' ?>>Soir</option>
+                    <optgroup selected label="Réserver pour le midi">
+                        <option value="1" <?= (isset($time) && $time == 1) ? 'selected' : '' ?>>12h00</option>
+                        <option value="2" <?= (isset($time) && $time == 2) ? 'selected' : '' ?>>12h30</option>
+                        <option value="3" <?= (isset($time) && $time == 3) ? 'selected' : '' ?>>13h00</option>
+                        <option value="4" <?= (isset($time) && $time == 4) ? 'selected' : '' ?>>13h30</option>
+                    </optgroup>
+                    <optgroup label="Réserver pour le soir">
+                        <option value="5" <?= (isset($time) && $time == 5) ? 'selected' : '' ?>>19h00</option>
+                        <option value="6" <?= (isset($time) && $time == 6) ? 'selected' : '' ?>>19h30</option>
+                        <option value="7" <?= (isset($time) && $time == 7) ? 'selected' : '' ?>>20h00</option>
+                        <option value="8" <?= (isset($time) && $time == 8) ? 'selected' : '' ?>>20h30</option>
+                    </optgroup>
                 </select>
                 <?= empty($errors['time']) ? '' : '<div class="errorMessage">' . $errors['time'] . '</div>' ?>
 
@@ -79,10 +88,19 @@
                 <input type="date" name="date" value="<?= $date ?? '' ?>" pattern="^<?= date('Y', time()) ?>-<?= date('m', time()) ?>-[0-3][0-9]$" required>
                 <?= empty($errors['date']) ? '' : '<div class="errorMessage">' . $errors['date'] . '</div>' ?>
 
-                <select name="time" pattern="^(matin)|(soir)$" required>
-                    <option value="0" disabled selected>Choisissez votre créneaux</option>
-                    <option value="1">Midi</option>
-                    <option value="2">Soir</option>
+                <select name="time" pattern="^[1-2]$" required>
+                    <optgroup selected label="Réserver pour le midi">
+                        <option value="1" <?= (isset($time) && $time == 1) ? 'selected' : '' ?>>12h00</option>
+                        <option value="2" <?= (isset($time) && $time == 2) ? 'selected' : '' ?>>12h30</option>
+                        <option value="3" <?= (isset($time) && $time == 3) ? 'selected' : '' ?>>13h00</option>
+                        <option value="4" <?= (isset($time) && $time == 4) ? 'selected' : '' ?>>13h30</option>
+                    </optgroup>
+                    <optgroup label="Réserver pour le soir">
+                        <option value="5" <?= (isset($time) && $time == 5) ? 'selected' : '' ?>>19h00</option>
+                        <option value="6" <?= (isset($time) && $time == 6) ? 'selected' : '' ?>>19h30</option>
+                        <option value="7" <?= (isset($time) && $time == 7) ? 'selected' : '' ?>>20h00</option>
+                        <option value="8" <?= (isset($time) && $time == 8) ? 'selected' : '' ?>>20h30</option>
+                    </optgroup>
                 </select>
                 <?= empty($errors['time']) ? '' : '<div class="errorMessage">' . $errors['time'] . '</div>' ?>
 

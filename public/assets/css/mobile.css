@@ -359,6 +359,14 @@ header .whiteBrush {
     align-items: center;
 }
 
+.reservation optgroup {
+    background-color: #333;
+}
+
+.reservation option {
+    background-color: #000;
+}
+
 .reservationType button.inactive {
     background-color: #d3d3d3a3;
 }
