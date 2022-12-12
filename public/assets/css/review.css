@@ -14,9 +14,13 @@ header h3 {
 
 .reviews h2 {
     margin: 2rem 0 2rem 0;
-    color: #A57D5C;
+    color: var(--mediumBlue);
     text-align: center;
     font-size: 2.5rem;
+}
+
+.reviews h2:first-of-type {
+    margin-bottom: 0;
 }
 
 .review {
@@ -47,7 +51,7 @@ header h3 {
 }
 
 .review h4 {
-    color: #A57D5C;
+    color: var(--mediumBlue);
     margin: 0.8rem 0;
 }
 

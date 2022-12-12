@@ -1,5 +1,8 @@
 <section class="reviews">
     <h2>Livre d'or</h2>
+    <p class="review">Nous sommes toujours ravis de recevoir des commentaires de la part de nos clients. 
+    Si vous avez apprécié votre expérience au restaurant "L'adresse", nous vous encourageons 
+    à laisser un commentaire sur les différents sites de critiques en ligne.</p>
     <h3>Commentaires client</h3>
     <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
     <?php

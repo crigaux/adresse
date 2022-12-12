@@ -6,7 +6,7 @@
     <div class="about">
         <h2>À propos</h2>
         <h3>Notre histoire</h3>
-        <p>Notre Chef vous propose une savoureuse cuisine traditionnelle et gastronomique. Membre du cercle envié des Maîtres Restaurateurs, il a multiplié les expériences auprès de chefs étoilés et a sillonné le monde, Chypre, Moscou, Caraïbes… Il a ramené de ses voyages saveurs et savoirs faire d’ailleurs qu’il mêle avec bonheur à une tradition culinaire profondément ancrée dans le terroir.</p>
+        <p>Bienvenue à "L'adresse", notre restaurant italien situé en plein cœur de la ville d'Amiens. Nous proposons une cuisine authentique et savoureuse, préparée avec des ingrédients frais et de qualité. Venez découvrir notre sélection de plats traditionnels, ainsi que notre carte des vins exceptionnelle. Réservation recommandée. Nous vous attendons !</p>
     </div>
 </section>
 
@@ -19,9 +19,16 @@
     ?>
         <h2>Reservation</h2>
         <h3 class="logNeeded">Connectez-vous pour réserver</h3>
-        <a href="/connexion">
-            <button>Connexion</button>
-        </a>
+        <div class="containerButton">
+            <a href="/connexion">
+                <button>Connexion</button>
+            </a>
+            <a href="https://beefast.coopcycle.org/fr/restaurant/13-l-adresse" target="_blank">
+                <button>
+                    Livrez moi
+                </button>
+            </a>
+        </div>
     <?php
 
     } else {
@@ -33,6 +40,11 @@
             <div class="reservationType">
                 <button>Sur place</button>
                 <button class="inactive">À emporter</button>
+                <a href="https://beefast.coopcycle.org/fr/restaurant/13-l-adresse" target="_blank">
+                    <button class="inactive">
+                        Livrez moi
+                    </button>
+                </a>
             </div>
 
             <!-- Message pour valider l'ajout d'un rendez vous -->
@@ -145,7 +157,6 @@
                 <div class="addDish">+</div>
 
                 <input type="hidden" name="form" value="2">
-
                 <button type="submit">Réserver</button>
             </form>
         <?php
@@ -166,17 +177,17 @@
         <div>
             <img src="../public/assets/img/feature1.png" alt="">
             <h4>Un menu pour tous</h4>
-            <p>Vous trouverez votre bonheur dans notre menu adapté à tous</p>
+            <p>Notre vous proposons des menus adaptés pour tous les goûts et tous les besoins, que vous soyez végétarien ou que vous ayez des allergies.</p>
         </div>
         <div>
             <img src="../public/assets/img/feature2.png" alt="">
-            <h4>Des ingrédients frais et de saison</h4>
-            <p>Viandes, poissons, légumes, locaux, frais et de saison</p>
+            <h4>Des ingrédients frais préparés sur place</h4>
+            <p>Notre restaurant met un point d'honneur à utiliser des produits frais dans la préparation de nos plats afin de vous servir des plats exquis.</p>
         </div>
         <div>
             <img src="../public/assets/img/feature3.png" alt="">
-            <h4>Un chef expérimenté</h4>
-            <p>20 ans d'expérience dans les plus grands restaurants</p>
+            <h4>Une équipe passionnée</h4>
+            <p>L'équipe du restaurant "L'adresse" est passionnée et dévouée à offrir une expérience culinaire exceptionnelle à nos clients.</p>
         </div>
     </div>
 
