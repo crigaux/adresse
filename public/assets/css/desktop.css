@@ -312,8 +312,8 @@
     right: 20%;
     top: 50%;
     content: '';
-    border-left: 12px solid var(--blueTan);
-    border-right: 12px solid var(--blueTan);
+    border-left: 12px solid var(--mediumBlue);
+    border-right: 12px solid var(--mediumBlue);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     height: 3px;
