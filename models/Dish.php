@@ -202,7 +202,10 @@
 			return false;
 		}
 
-		// Méthode pour récupérer tous les types de plats
+		/**
+		 * Méthode pour récupérer tous les types de plats
+		 * @return int
+		 */
 		public static function dishTypes():int {
 			$pdo = Database::getInstance();
 
@@ -210,6 +213,28 @@
 
 			if($sth = $pdo->query($query)) {
 				return $sth->fetch()->typesNb;
+			}
+			return false;
+		}
+
+		/**
+		 * Méthode pour récupérer le nom d'un type de plat
+		 * 
+		 * @param int $id
+		 * 
+		 * @return string
+		 */
+		public static function dishTypeName(int $id):string|false {
+			$pdo = Database::getInstance();
+
+			$query = "SELECT `type` FROM `dishes_types` WHERE `id` = :id;";
+
+			$sth = $pdo->prepare($query);
+
+			$sth->bindValue(':id', $id, PDO::PARAM_INT);
+
+			if($sth->execute()) {
+				return $sth->fetch()->type ?? false;
 			}
 			return false;
 		}

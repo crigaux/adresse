@@ -16,10 +16,6 @@ if ((isset($_SESSION) && $_SESSION['user']->admin != 1) || !isset($_SESSION)) {
 // ###############################################################################
 
 if ($_SERVER['REQUEST_URI'] == '/admin/menu') {
-	$starters = Dish::getAll(1);
-	$dishes = Dish::getAll(2);
-	$desserts = Dish::getAll(3);
-
 	include(__DIR__ . '/../../views/admin/templates/dbHeader.php');
 	include(__DIR__ . '/../../views/admin/dbDishes.php');
 	include(__DIR__ . '/../../views/admin/templates/dbFooter.php');
