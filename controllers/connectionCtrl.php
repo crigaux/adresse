@@ -3,7 +3,7 @@
     require_once(__DIR__ . '/../config/regex.php');
     require_once(__DIR__ . '/../helpers/testInputs.php');
     require_once(__DIR__ . '/../helpers/SessionFlash.php');
-
+    
     if(isset($_SESSION['user'])) {
         header('Location: /');
         exit();
