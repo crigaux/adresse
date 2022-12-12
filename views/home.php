@@ -18,14 +18,19 @@
     if (!isset($_SESSION['user'])) {
     ?>
         <h2>Reservation</h2>
-        <h3 class="logNeeded">Connectez-vous pour réserver</h3>
+        <h3 class="logNeeded">Connectez-vous pour réserver en ligne</h3>
         <div class="containerButton">
             <a href="/connexion">
                 <button>Connexion</button>
             </a>
+            <a href="tel:0360604941" target="_blank">
+                <button>
+                    Par téléphone
+                </button>
+            </a>
             <a href="https://beefast.coopcycle.org/fr/restaurant/13-l-adresse" target="_blank">
                 <button>
-                    Livrez moi
+                    Livraison
                 </button>
             </a>
         </div>

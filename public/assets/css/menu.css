@@ -3,6 +3,17 @@
     src: url('../fonts/UnicaOne/UnicaOne-Regular.ttf');
 }
 
+.containerButtonMenu {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.containerButtonMenu a {
+    margin: 0rem .5rem;
+}
+
 h2 {
     font-family: 'Dancing';
     text-align: center;
@@ -58,6 +69,9 @@ footer h2 {
 .dishesContainerMain {
     width: 100%;
     max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .foodCardContainer {
@@ -65,12 +79,12 @@ footer h2 {
     justify-content: space-around;
     flex-wrap: wrap;
     width: 100%;
-    margin: 2rem 0 1.5rem 0;
+    margin: 0rem 0 1.5rem 0;
 }
 
 .foodCardContainer .foodCard {
-    width: 300px;
-    margin-bottom: 3rem;
+    width: 275px;
+    margin-bottom: 2rem;
 }
 
 .foodCard .foodCardImg {
@@ -99,6 +113,35 @@ footer h2 {
     font-size: 0.9rem;
 }
 
+section {
+    width: 100%;
+}
+
+.returnToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--mediumBlue);
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    z-index: 100;
+
+}
+
+.returnToTop a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.returnToTop a svg {
+    height: 30px;
+    color: var(--fontColorLight);
+}
+
 @media (min-width: 768px) {
     header {
         margin-bottom: 2rem;
@@ -114,8 +157,7 @@ footer h2 {
     } */
 
     .foodCardContainer {
-        width: 85%;
-        margin-left: 7.5%;
+        width: 100%;
     }
 
     .starter .foodCard,
