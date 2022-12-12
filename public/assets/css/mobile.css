@@ -51,7 +51,7 @@ button {
     font-size: 1.2rem;
     margin: 1rem 0;
     cursor: pointer;
-    border: solid .5px var(--mediumBlue);
+    border: solid 1px var(--mediumBlue);
     transition: all .3s;
 }
 
@@ -60,7 +60,7 @@ button:hover {
     border-top-right-radius: 7px;
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
-    background-color: var(--backgroundWhite);
+    background-color: var(--bgColor);
     color: var(--mediumBlue);
 }
 
