@@ -43,10 +43,10 @@
     .menuLinksDesktop .connect h3 {
         font-size: 1.2rem;
         text-shadow: none;
-        border: solid 1px #A57D5C;
+        border: solid 1px var(--mediumBlue);
         padding: 0.5rem;
         border-radius: 10px;
-        background-color: #A57D5C;
+        background-color: var(--mediumBlue);
     }
 
     .menuLinksDesktop a {

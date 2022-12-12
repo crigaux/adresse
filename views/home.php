@@ -181,7 +181,7 @@
         </div>
         <div>
             <img src="../public/assets/img/feature2.png" alt="">
-            <h4>Des ingrédients frais préparés sur place</h4>
+            <h4>Des ingrédients préparés sur place</h4>
             <p>Notre restaurant met un point d'honneur à utiliser des produits frais dans la préparation de nos plats afin de vous servir des plats exquis.</p>
         </div>
         <div>

@@ -1,0 +1,11 @@
+User-agent: *
+
+Allow: /accueil
+Allow: /menu
+Allow: /commentaires
+Allow: /galerie
+Allow: /inscription
+Allow: /connexion
+
+Disallow: /admin/
+Disallow: /profil/

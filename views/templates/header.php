@@ -12,7 +12,8 @@
     <?= isset($isOnMenu) ? '<link rel="stylesheet" href="../../public/assets/css/menu.css">' : ''; ?>
     <?= isset($isOnReview) ? '<link rel="stylesheet" href="../../public/assets/css/review.css">' : ''; ?>
     <?= isset($isOnGalery) ? '<link rel="stylesheet" href="../../public/assets/css/galery.css">' : ''; ?>
-    <title>L'ADRESSE</title>
+    <meta name="description" content="Découvrez la cuisine authentique de L'adresse, notre restaurant italien situé au cœur d'Amiens. Nous proposons une large sélection de plats traditionnels préparés avec les meilleurs ingrédients frais. Réservez une table aujourd'hui pour goûter à notre délicieuse cuisine italienne.">
+    <title>L'adresse</title>
 </head>
 
 <body>
@@ -134,7 +135,7 @@
 
         <!-- Bannière -->
         <a href="../accueil">
-            <h1>L'ADRESSE</h1>
+            <h1>L'adresse</h1>
         </a>
         <div class="whiteBrushBottom"></div>
 
