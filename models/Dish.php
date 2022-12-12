@@ -238,4 +238,20 @@
 			}
 			return false;
 		}
+
+		/**
+		 * Méthode pour récupérer l'id du premier type de plat
+		 * 
+		 * @return int
+		 */
+		public static function firstDishType():int|false {
+			$pdo = Database::getInstance();
+
+			$query = "SELECT `id` FROM `dishes_types` ORDER BY `id` ASC LIMIT 1;";
+
+			if($sth = $pdo->query($query)) {
+				return $sth->fetch()->id ?? false;
+			}
+			return false;
+		}
 	}

@@ -12,11 +12,11 @@
 	</div>
 
 	<?php
-	for ($i = 0; $i < Dish::dishTypes(); $i++) {
-		$dishes = Dish::getAll($i + 1);
+	for ($i = Dish::firstDishType() ; $i < Dish::firstDishType() + Dish::dishTypes(); $i++) {
+		$dishes = Dish::getAll($i);
 		if ($dishes != false) {
 	?>
-			<h2><?= Dish::dishTypeName($i + 1) ?></h2>
+			<h2><?= Dish::dishTypeName($i) ?></h2>
 			<?php
 			foreach ($dishes as $dish) {
 			?>

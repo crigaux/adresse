@@ -3,7 +3,8 @@
 
     $isOnMenu = true;
     
-    $typesOfDishes = Dish::dishTypes();
+    $firstDishType = Dish::firstDishType();
+    $typesOfDishes = Dish::dishTypes() + $firstDishType;
     
     include(__DIR__ . '/../views/templates/header.php');
     include(__DIR__ . '/../views/menu.php');

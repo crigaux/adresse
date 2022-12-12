@@ -1,7 +1,7 @@
 <div class="dishesContainerMain">
     <!-- Affichage de tout les boutons avec une redirection par ancre à la section convenue -->
     <div class="containerButtonMenu">
-        <?php for($i = 1; $i < $typesOfDishes; $i++ ) : ?>
+        <?php for($i = $firstDishType ; $i < $typesOfDishes ; $i++) : ?>
             <?php $dishTypeName = Dish::dishTypeName($i) ?>
             <a href="#<?= $dishTypeName ?>">
             <button>
@@ -11,7 +11,7 @@
         <?php endfor; ?>
     </div>
 
-    <?php for ($i=1; $i < $typesOfDishes ; $i++) :?>
+    <?php for ($i = $firstDishType ; $i < $typesOfDishes ; $i++) :?>
         <?php $dishTypeName = Dish::dishTypeName($i) ?>
         <section id="<?= $dishTypeName ?>">
             <h2><?= ucfirst($dishTypeName) ?></h2>
@@ -20,8 +20,7 @@
                 <?php foreach (Dish::getAll($i) as $element) : ?>
                     <div class="foodCard">
                         <div class="foodCardImg">
-                            <img src="/public/assets/img/couple.jpg" alt="">
-                            <!-- <img src=<?= ($element->image == $i) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>"> -->
+                            <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>">
                         </div>
                         <div class="foodCardDesc">
                             <h3><?= $element->title ?></h3>

@@ -76,14 +76,15 @@ footer h2 {
 
 .foodCardContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 0rem 0 1.5rem 0;
+    margin: 4rem 0.5rem 1.5rem 0;
 }
 
 .foodCardContainer .foodCard {
     width: 275px;
+    margin: 0 1.5rem;
     margin-bottom: 2rem;
 }
 
