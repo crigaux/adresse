@@ -182,17 +182,17 @@
         <div>
             <img src="../public/assets/img/feature1.png" alt="">
             <h4>Un menu pour tous</h4>
-            <p>Notre vous proposons des menus adaptés pour tous les goûts et tous les besoins, que vous soyez végétarien ou que vous ayez des allergies.</p>
+            <p>Nous vous proposons des menus adaptés pour tous les goûts et tous les besoins, quelque soit votre régime alimentaire (végétarien, allérgies ...).</p>
         </div>
         <div>
             <img src="../public/assets/img/feature2.png" alt="">
             <h4>Des ingrédients préparés sur place</h4>
-            <p>Notre restaurant met un point d'honneur à utiliser des produits frais dans la préparation de nos plats afin de vous servir des plats exquis.</p>
+            <p>Notre restaurant met un point d'honneur à utiliser des produits frais dans la préparation de nos plats afin de vous servir des plats délicieux.</p>
         </div>
         <div>
             <img src="../public/assets/img/feature3.png" alt="">
             <h4>Une équipe passionnée</h4>
-            <p>L'équipe du restaurant "L'adresse" est passionnée et dévouée à offrir une expérience culinaire exceptionnelle à nos clients.</p>
+            <p>L'équipe du restaurant "L'adresse" est passionnée et dévouée à vous offrir une expérience culinaire exceptionnelle mémorable.</p>
         </div>
     </div>
 
