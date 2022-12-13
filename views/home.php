@@ -5,7 +5,6 @@
     </div>
     <div class="about">
         <h2>À propos</h2>
-        <h3>Notre histoire</h3>
         <p>Bienvenue à "L'adresse", notre restaurant italien situé en plein cœur de la ville d'Amiens. Nous proposons une cuisine authentique et savoureuse, préparée avec des ingrédients frais et de qualité. Venez découvrir notre sélection de plats traditionnels, ainsi que notre carte des vins exceptionnelle. Réservation recommandée. Nous vous attendons !</p>
     </div>
 </section>
