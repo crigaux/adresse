@@ -17,7 +17,7 @@
 :root {
 	--primary-color : #000;
 	--secondary-color : #fff;
-	--tertiary-color : var(--mediumBlue);
+	--tertiary-color : #A57D5C;
 	--title-font-size : 3rem;
 	--subtitle-font-size : 1.5rem;
 	--text-font-size : 1rem;
@@ -174,8 +174,8 @@ main {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: var(--mediumBlue);
-	border: solid 2.5px var(--mediumBlue);
+	color: var(--tertiary-color);
+	border: solid 2.5px var(--tertiary-color);
 	font-weight: var(--bold-weight);
 }
 
@@ -262,8 +262,8 @@ main {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: var(--mediumBlue);
-	border: solid 2.5px var(--mediumBlue);
+	color: var(--tertiary-color);
+	border: solid 2.5px var(--tertiary-color);
 	font-weight: var(--medium-weight);
 }
 
@@ -274,6 +274,31 @@ main {
 	flex-direction: column;
 	margin-top: 1rem;
 	width: 325px;
+}
+
+.toGoCheckbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	white-space: nowrap;
+}
+
+.toGoCheckbox input {
+	width: 10%;
+	accent-color: var(--tertiary-color);
+}
+
+.toGoCheckbox label {
+	font-family: 'Montserrat';
+	font-weight: 600;
+	font-size: 1.2rem;
+	color: var(--tertiary-color);
+}
+
+.isToGo {
+	font-size: 0.8rem;
+	font-style: italic;
 }
 
 input,
@@ -300,7 +325,7 @@ select:focus {
 
 button {
 	font-family: 'UnicaOne';
-	background-color: var(--mediumBlue);
+	background-color: var(--tertiary-color);
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 	border: none;
@@ -310,7 +335,7 @@ button {
 	font-size: 1.2rem;
 	margin: 1rem 0;
 	cursor: pointer;
-	border: solid 2.5px var(--mediumBlue);
+	border: solid 2.5px var(--tertiary-color);
 	transition: all .3s;
 }
 
@@ -320,8 +345,8 @@ button:hover {
 	border-bottom-right-radius: 0;
 	border-top-left-radius: 0;
 	background-color: #f3f3f3;
-	color: var(--mediumBlue);
-	border: solid 2.5px var(--mediumBlue);
+	color: var(--tertiary-color);
+	border: solid 2.5px var(--tertiary-color);
 }
 
 .dishHead {
@@ -663,7 +688,6 @@ button:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 1rem;
 	color: var(--primary-color);
 }
 

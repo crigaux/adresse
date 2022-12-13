@@ -63,6 +63,7 @@
 						<div class="desc"><?= $dish->description ?></div>
 						<a href="/admin/menu/edit/<?= $dish->id ?>">Modifier</a>
 						<div class="btnDeleteConf" id="<?= $dish->id ?>">Supprimer</div>
+						<?= ($dish->togo == 1) ? '<div class="isToGo">Disponible au retrait</div>' : '' ?>
 					</div>
 				</div>
 	<?php

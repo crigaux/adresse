@@ -17,7 +17,8 @@
             <h2><?= ucfirst($dishTypeName) ?></h2>
             <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
             <div class="foodCardContainer">
-                <?php foreach (Dish::getAll($i) as $element) : ?>
+                <?php foreach (Dish::getAll($i) as $element) : 
+                ?>
                     <div class="foodCard">
                         <div class="foodCardImg">
                             <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>">

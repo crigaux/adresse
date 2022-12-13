@@ -2,5 +2,6 @@
 
 	require_once(__DIR__.'/../../models/Dish.php');
 
-	$dishes = Dish::getAll();
+	$dishes = Dish::getTakeAway();
+
 	echo json_encode($dishes);

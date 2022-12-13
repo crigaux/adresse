@@ -10,9 +10,11 @@
 		private int $id_users;
 		private int $id_dishes_types;
 		private int $image;
+		private int $togo;
+
 		private PDO $pdo;
 
-		public function __construct($title, $price, $description, $id_users, $id_dishes_types, $image, $active = 1) {
+		public function __construct($title, $price, $description, $id_users, $id_dishes_types, $image, $active = 1, $togo = 0) {
 
 			$this->pdo = Database::getInstance();
 
@@ -21,6 +23,7 @@
 			$this->description = $description;
 			$this->active = $active;
 			$this->image = $image;
+			$this->togo = $togo;
 			$this->id_users = $id_users;
 			$this->id_dishes_types = $id_dishes_types;
 		}
@@ -70,8 +73,8 @@
 		 */
 		public function create() {
 			$query = 
-			"INSERT INTO `dishes` (`title`, `price`, `description`, `active`, `id_users`, `id_dishes_types`, `image`) 
-			VALUES (:title, :price, :description, :active, :id_users, :id_dishes_types, :image);";
+			"INSERT INTO `dishes` (`title`, `price`, `description`, `active`, `id_users`, `id_dishes_types`, `image`, `togo`) 
+			VALUES (:title, :price, :description, :active, :id_users, :id_dishes_types, :image, :togo);";
 
 			$sth = $this->pdo->prepare($query);
 
@@ -80,6 +83,7 @@
 			$sth->bindValue(':description', $this->description);
 			$sth->bindValue(':active', $this->active, PDO::PARAM_BOOL);
 			$sth->bindValue(':image', $this->image, PDO::PARAM_INT);
+			$sth->bindValue(':togo', $this->togo, PDO::PARAM_BOOL);
 			$sth->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
 			$sth->bindValue(':id_dishes_types', $this->id_dishes_types, PDO::PARAM_INT);
 
@@ -99,10 +103,21 @@
 				$query = "SELECT * FROM `dishes`";
 				$sth = $pdo->prepare($query);
 			} else {
-				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = :id_dishes_types;";
+				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = :id_dishes_types ORDER BY `id_dishes_types`;";
 				$sth = $pdo->prepare($query);
 				$sth->bindValue(':id_dishes_types', $type, PDO::PARAM_INT);
 			}
+			if($sth->execute()) {
+				return $sth->fetchAll();
+			}
+			return false;
+		}
+
+		// Méthode permettant de récupérer les plats à emporter
+		public static function getTakeAway():array|false {
+			$pdo = Database::getInstance();
+			$query = "SELECT * FROM `dishes` WHERE `togo` = 1 ORDER BY `id_dishes_types`;";
+			$sth = $pdo->prepare($query);
 			if($sth->execute()) {
 				return $sth->fetchAll();
 			}
@@ -119,13 +134,13 @@
 		public static function getLast(string $type):array|false {
 			$pdo = Database::getInstance();
 			if($type == 'starters') {
-				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 1 ORDER BY `id` DESC LIMIT 3;";
+				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 6 AND `active` = 2 ORDER BY `id` DESC LIMIT 3;";
 				$sth = $pdo->prepare($query);
 			} else if($type == 'dishes') {
-				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 2 ORDER BY `id` DESC LIMIT 3;";
+				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 12 AND `active` = 2 ORDER BY `id` DESC LIMIT 3;";
 				$sth = $pdo->prepare($query);
 			} else if($type == 'desserts') {
-				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 3 ORDER BY `id` DESC LIMIT 3;";
+				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = 15 AND `active` = 2 ORDER BY `id` DESC LIMIT 3;";
 				$sth = $pdo->prepare($query);
 			}
 			if($sth->execute()) {

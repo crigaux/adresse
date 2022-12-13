@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_URI'] == '/admin/menu') {
 // ###############################################################################
 
 else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
-
+	$dishTypes = Dish::dishTypes();
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errors = [];
 
@@ -40,17 +40,20 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
 		if (empty($price)) {
 			$errors['price'] = 'Veuillez entrer un prix';
 		}
-		// Nettoie la description et vérifie qu'elle n'est pas vide
+		// Nettoie la description
 		$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-		if (empty($description)) {
-			$errors['description'] = 'Veuillez entrer une description';
-		}
+
 		// Nettoie le type de plat et vérifie qu'il n'est pas vide
 		$dish_type = intval(filter_input(INPUT_POST, 'dish_type', FILTER_SANITIZE_NUMBER_INT));
 		if (empty($dish_type)) {
 			$errors['dish_type'] = 'Veuillez entrer un type de plat';
 		}
-		if ($dish_type != 1 && $dish_type != 2 && $dish_type != 3) {
+		// Vérifie que le type de plat est valide
+		$validType = [];
+		for ($i = Dish::firstDishType() ; $i < Dish::firstDishType() + Dish::dishTypes(); $i++) {
+			$validType[] += $i;
+		}
+		if (in_array($dish_type, $validType) == false) {
 			$errors['dish_type'] = 'Veuillez entrer un type de plat valide';
 		}
 
@@ -144,7 +147,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/active/' . $id) {
 		exit();
 	}
 
-	$dishUpdate = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users, $dish->id_dishes_types, $active, $dish->image);
+	$dishUpdate = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users, $dish->id_dishes_types, $dish->image, $active, $dish->togo);
 	$dishUpdate->update($id);
 
 	if ($active == 1) {
@@ -178,15 +181,17 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/' . $id) {
 		if (empty($price)) {
 			$errors['price'] = 'Veuillez entrer un prix';
 		}
-		// Nettoie la description et vérifie qu'elle n'est pas vide
+		// Nettoie la description
 		$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-		if (empty($description)) {
-			$errors['description'] = 'Veuillez entrer une description';
+
+		$toGo = intval(filter_input(INPUT_POST, 'toGo', FILTER_SANITIZE_NUMBER_INT));
+		if ($toGo != 0 && $toGo != 1) {
+			$errors['toGo'] = 'Veuillez choisir une option';
 		}
 
 		if (empty($errors)) {
 			// Met à jour le plat
-			$dishUpdated = new Dish($title, $price, $description, $dish->id_users,  $dish->id_dishes_types, $dish->image);
+			$dishUpdated = new Dish($title, $price, $description, $dish->id_users,  $dish->id_dishes_types, $dish->image, $dish->active, $toGo);
 			$dishUpdated->update($id);
 
 			// Redirige vers la page des plats
@@ -235,7 +240,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/img/' . $id) {
 			SessionFlash::set('error', 'L\'image n\'a pas pu être modifiée.');
 		}
 	} else {
-		$dishUpdated = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users,  $dish->id_dishes_types, 2);
+		$dishUpdated = new Dish($dish->title, $dish->price, $dish->description, $dish->id_users,  $dish->id_dishes_types, 2, $dish->active, $dish->togo);
 		$dishUpdated->update($id);
 		$target_file = strtolower(str_replace(' ', '', $dish->id)) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
 		$target_path = $target_dir . $target_file;
