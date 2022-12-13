@@ -10,15 +10,15 @@
 
 	// Gestion des dates et heures en français
 
-	// $formatHour = new IntlDateFormatter(
-	// 	locale: 'fr_FR',
-	// 	pattern: "HH'h'mm"
-	// );
+	$formatHour = new IntlDateFormatter(
+		locale: 'fr_FR',
+		pattern: "HH'h'mm"
+	);
 
-	// $formatDate = new IntlDateFormatter(
-	// 	locale: 'fr_FR',
-	// 	pattern: 'EEEE d MMMM yyyy'
-	// );
+	$formatDate = new IntlDateFormatter(
+		locale: 'fr_FR',
+		pattern: 'EEEE d MMMM yyyy'
+	);
 
 	// Définition de 'secret'
 

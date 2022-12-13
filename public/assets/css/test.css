@@ -5,7 +5,7 @@
 
 @font-face {
 	font-family: 'Montserrat';
-	src: url('/public/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+	src: url('/public/assets/fonts/Montserrat/Regular.ttf');
 }
 
 *, ::before, ::after {
@@ -933,19 +933,6 @@ button:hover {
 	font-size: 1.5rem;
 }
 
-/* .user .btnDeleteConf {
-	position: absolute;
-	top: .6rem;
-	right: .6rem;
-	height: 45px;
-	width: 45px;
-}
-
-.user .btnDeleteConf svg {
-	fill: #d33913;
-	height: 100%;
-} */
-
 .validatedBtn {
 	background-color:#41D888;
 	display: flex;
@@ -1040,6 +1027,10 @@ button:hover {
 	align-items: center;
 }
 
+.user .reservationCard .btnDeleteConf {
+	margin-bottom: 1rem;
+}
+
 .user .reservationCard button {
 	margin-top: 0;
 }
@@ -1122,6 +1113,7 @@ button:hover {
 	position: initial;
 	width: auto;
 	height: auto;
+	margin-bottom: 1rem;
 }
 
 .userReviews .reviewSvg {
