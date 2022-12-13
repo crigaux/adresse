@@ -17,10 +17,10 @@
 		</div>
 		<div class="toGoCheckbox">
 			<input id="toGoCheckbox" type="checkbox" name="toGo" value="1" <?= ($dish->togo == 1) ? 'checked' : '' ?>>
-			<label for="toGoCheckbox">En livraison</label>
+			<label for="toGoCheckbox">Disponible au retrait</label>
 		</div>
 		<div class="errorMessage">
-			<?= $errors['active'] ?? '' ;?>
+			<?= $errors['toGoCheckbox'] ?? '' ;?>
 		</div>
 
 		<button type="submit">Modifier</button>

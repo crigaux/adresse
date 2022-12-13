@@ -32,6 +32,13 @@
 		<div class="errorMessage">
 			<?= $errors['img'] ?? '' ;?>
 		</div>
+		<div class="toGoCheckbox">
+			<input id="toGoCheckbox" type="checkbox" name="toGo" value="1" <?= ((!empty($togo) && $togo == 1) ? 'checked' : '') ?>>
+			<label for="toGoCheckbox">Disponible au retrait</label>
+		</div>
+		<div class="errorMessage">
+			<?= $errors['toGoCheckbox'] ?? '' ;?>
+		</div>
 
 		<button type="submit">Ajouter</button>
 	</form>

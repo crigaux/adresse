@@ -57,6 +57,11 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
 			$errors['dish_type'] = 'Veuillez entrer un type de plat valide';
 		}
 
+		$togo = intval(filter_input(INPUT_POST, 'toGo', FILTER_SANITIZE_NUMBER_INT));
+		if ($togo != 0 && $togo != 1) {
+			$errors['toGoCheckbox'] = 'Veuillez choisir une option';
+		}
+		
 		$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/galery/";
 
 		if (!empty($_FILES["img"]["name"]) && $_FILES["img"]["type"] != 'image/jpeg') {
@@ -74,7 +79,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/ajout') {
 				} else {
 					$image = 2;
 				}
-				$dish = new Dish($title, $price, $description, $_SESSION['user']->id, $dish_type, $image);
+				$dish = new Dish($title, $price, $description, $_SESSION['user']->id, $dish_type, $image, 1, $togo);
 				if ($dish->create() == true) {
 					if(!empty($_FILES["img"]["name"])) {
 						$target_file = strtolower(str_replace(' ', '', $pdo->lastInsertId())) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
@@ -186,7 +191,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/menu/edit/' . $id) {
 
 		$toGo = intval(filter_input(INPUT_POST, 'toGo', FILTER_SANITIZE_NUMBER_INT));
 		if ($toGo != 0 && $toGo != 1) {
-			$errors['toGo'] = 'Veuillez choisir une option';
+			$errors['toGoCheckbox'] = 'Veuillez choisir une option';
 		}
 
 		if (empty($errors)) {
