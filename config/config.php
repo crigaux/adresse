@@ -1,12 +1,9 @@
 <?php
 
 	define('DSN', 'mysql:host=localhost;dbname=adresse;charset=utf8');
-	define('USER', 'annexe_admin');
-	define('PWD', ']QbMEVFWOFDcVfQA');
+	define('USER', 'root');
+	define('PWD', '');
 
-	// define('DSN', 'mysql:host=127.0.0.1:3306;dbname=u993442228_adresse;charset=utf8');
-	// define('USER', 'u993442228_admin');
-	// define('PWD', 'Luckydube76260,;:!');
 
 	// Gestion des dates et heures en français
 
