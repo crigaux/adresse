@@ -113,6 +113,22 @@
 			return false;
 		}
 
+		public static function getAllActive(int $type = NULL):array|false {
+			$pdo = Database::getInstance();
+			if($type == NULL) {
+				$query = "SELECT * FROM `dishes` WHERE `active` = 2";
+				$sth = $pdo->prepare($query);
+			} else {
+				$query = "SELECT * FROM `dishes` WHERE `id_dishes_types` = :id_dishes_types AND `active` = 2 ORDER BY `id_dishes_types`;";
+				$sth = $pdo->prepare($query);
+				$sth->bindValue(':id_dishes_types', $type, PDO::PARAM_INT);
+			}
+			if($sth->execute()) {
+				return $sth->fetchAll();
+			}
+			return false;
+		}
+
 		// Méthode permettant de récupérer les plats à emporter
 		public static function getTakeAway():array|false {
 			$pdo = Database::getInstance();
