@@ -75,10 +75,10 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                        <?php endforeach; ?>
-                        <?php } ?>
+                    <?php endforeach; ?>
                 </div>
             </section>
+            <?php } ?>
         <?php endfor; ?>
     </div>
     <div class="containerArdoise hidden">

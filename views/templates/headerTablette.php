@@ -19,26 +19,30 @@
     <div class="navbarTablet fullDishes">
         <div class="containerButtonTablet">
             <?php for($i = $firstDishType ; $i < $typesOfDishes ; $i++) : ?>
-                <?php $dishTypeName = Dish::dishTypeName($i) ?>
-                <a href="#<?= $dishTypeName ?>">
-                <button>
-                    <?= ucfirst($dishTypeName) ?>
-                </button>
-                </a>
+                <?php if(!empty(Dish::getAllActive($i))) : ?>
+                    <?php $dishTypeName = Dish::dishTypeName($i) ?>
+                    <a href="#<?= $dishTypeName ?>">
+                    <button>
+                        <?= ucfirst($dishTypeName) ?>
+                    </button>
+                    </a>
+                <?php endif ;?>
             <?php endfor; ?>
         </div>
     </div>
     <div class="navbarTablet fullDrinks hidden">
         <div class="containerButtonTablet">
             <?php for($i = $firstDrinkType ; $i < $typesOfDrinks ; $i++) : ?>
-                <?php $dishTypeName = Drink::drinkTypeName($i) ?>
-                <?php if($dishTypeName != '') : ?>
-                <a href="#<?= $dishTypeName ?>">
-                <button>
-                    <?= ucfirst($dishTypeName) ?>
-                </button>
-                </a>
-                <?php endif; ?>
+                <?php if(!empty(Drink::getAllActive($i))) { ?>
+                    <?php $dishTypeName = Drink::drinkTypeName($i) ?>
+                    <?php if($dishTypeName != '') : ?>
+                    <a href="#<?= $dishTypeName ?>">
+                    <button>
+                        <?= ucfirst($dishTypeName) ?>
+                    </button>
+                    </a>
+                    <?php endif; ?>
+                <?php } ?>
             <?php endfor; ?>
         </div>
     </div>
