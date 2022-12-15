@@ -17,9 +17,10 @@ class Drink {
 	private string $prix_carafe;
 	private string $prix_demicarafe;
 	private int $alacarte;
+	private int $image;
 	private PDO $pdo;
 
-	public function __construct($titre, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte) {
+	public function __construct($titre, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte, $image) {
 
 		$this->pdo = Database::getInstance();
 
@@ -35,6 +36,7 @@ class Drink {
 		$this->prix_carafe = $prix_carafe;
 		$this->prix_demicarafe = $prix_demicarafe;
 		$this->alacarte = $alacarte;
+		$this->image = $image;
 	}
 
 	public function setTitre(string $titre) {
@@ -73,6 +75,9 @@ class Drink {
 	public function setAlacarte(int $alacarte) {
 		$this->alacarte = $alacarte;
 	}
+	public function setImage(int $image) {
+		$this->image = $image;
+	}
 
 	public function getTitre() {
 		return $this->titre;
@@ -110,9 +115,12 @@ class Drink {
 	public function getAlacarte() {
 		return $this->alacarte;
 	}
+	public function getImage() {
+		return $this->image;
+	}
 
 	public function create() {
-		$sql = "INSERT INTO boissons (titre, description, provenance, appellation, type, prix, prix_bouteille, prix_demibouteille, prix_verre, prix_carafe, prix_demicarafe, alacarte) VALUES (:titre, :description, :provenance, :appellation, :type, :prix, :prix_bouteille, :prix_demibouteille, :prix_verre, :prix_carafe, :prix_demicarafe, :alacarte)";
+		$sql = "INSERT INTO boissons (titre, description, provenance, appellation, type, prix, prix_bouteille, prix_demibouteille, prix_verre, prix_carafe, prix_demicarafe, alacarte, image) VALUES (:titre, :description, :provenance, :appellation, :type, :prix, :prix_bouteille, :prix_demibouteille, :prix_verre, :prix_carafe, :prix_demicarafe, :alacarte, :image)";
 		$sth = $this->pdo->prepare($sql);
 		$sth->bindValue(':titre', $this->titre, PDO::PARAM_STR);
 		$sth->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -126,6 +134,7 @@ class Drink {
 		$sth->bindValue(':prix_carafe', $this->prix_carafe, PDO::PARAM_STR);
 		$sth->bindValue(':prix_demicarafe', $this->prix_demicarafe, PDO::PARAM_STR);
 		$sth->bindValue(':alacarte', $this->alacarte, PDO::PARAM_INT);
+		$sth->bindValue(':image', $this->image, PDO::PARAM_INT);
 
 		if($sth->execute()) {
 			return ($sth->rowCount() == 1) ?  true : false;
@@ -156,10 +165,11 @@ class Drink {
 		return false;
 	}
 
-	public function delete() {
+	public static function delete($id) {
+		$pdo = Database::getInstance();
 		$sql = "DELETE FROM boissons WHERE id = :id";
-		$sth = $this->pdo->prepare($sql);
-		$sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+		$sth = $pdo->prepare($sql);
+		$sth->bindValue(':id', $id, PDO::PARAM_INT);
 
 		if($sth->execute()) {
 			return ($sth->rowCount() == 1) ?  true : false;
@@ -178,8 +188,7 @@ class Drink {
 			$sth->bindValue(':type', $type, PDO::PARAM_INT);
 		}
 		$sth->execute();
-		$ardoises = $sth->fetchAll();
-		return $ardoises;
+		return $sth->fetchAll();
 	}
 
 	public static function get($id) {
@@ -236,5 +245,32 @@ class Drink {
 			return $sth->fetch()->type ?? false;
 		}
 		return false;
+	}
+
+	public static function getAllActive(int $type = NULL):array|false {
+		$pdo = Database::getInstance();
+		if($type == NULL) {
+			$query = "SELECT * FROM `boissons` WHERE `active` = 1";
+			$sth = $pdo->prepare($query);
+		} else {
+			$query = "SELECT * FROM `boissons` WHERE `type` = :type AND `alacarte` = 1 ORDER BY `type`;";
+			$sth = $pdo->prepare($query);
+			$sth->bindValue(':type', $type, PDO::PARAM_INT);
+		}
+		if($sth->execute()) {
+			return $sth->fetchAll();
+		}
+		return false;
+	}
+
+	public static function getFilter($filter, $type) {
+		$pdo = Database::getInstance();
+		$sql = "SELECT * FROM `boissons` WHERE `type` = :type AND `titre` LIKE :filter";
+		$sth = $pdo->prepare($sql);
+		$sth->bindValue(':type', $type, PDO::PARAM_INT);
+		$sth->bindValue(':filter', '%'.$filter.'%', PDO::PARAM_STR);
+		$sth->execute();
+		$boissons = $sth->fetchAll();
+		return $boissons;
 	}
 }

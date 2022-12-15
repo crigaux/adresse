@@ -106,6 +106,8 @@ any('/admin/boissons/edit/img/$id', 'controllers/admin/dbDrinksCtrl.php');
 any('/admin/boissons/edit/active/$id', 'controllers/admin/dbDrinksCtrl.php');
 // Suppression d'une boisson
 any('/admin/boissons/delete/$id', 'controllers/admin/dbDrinksCtrl.php');
+// Recherche d'une boisson
+any('/admin/boissons/search', 'controllers/admin/dbDrinksCtrl.php');
 
 // #####################
 // Gestion des commandes
