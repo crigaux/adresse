@@ -8,6 +8,7 @@
 
     $isOnHome = true;
 
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if(!isset($_SESSION['user'])) {
@@ -41,7 +42,31 @@
             if(testInput($time, TIME_REGEX) != 'true') {
                 $errors['time'] = testInput($time, TIME_REGEX);
             }
-            
+
+            // Vérifie le nombre de couverts déjà réservés pour le jour et l'heure sélectionnés
+            $total = 0;
+            if($time > 0 && $time < 5) {
+                for($i = 1; $i < 5; $i++) {
+                    $reservations = Reservation::getByDate($date . ' ' . $slots[$i]) ;
+                    foreach ($reservations as $key => $reservation) {
+                        $total += $reservation->number_of_persons;
+                    }
+                }
+                if($total + $nbOfClients > 20) {
+                    $errors['nbOfClients'] = 'Il n\'y a plus de place ce jour le midi.';
+                }
+            } else {
+                for($i = 5; $i < 9; $i++) {
+                    $reservations = Reservation::getByDate($date . ' ' . $slots[$i]) ;
+                    foreach ($reservations as $key => $reservation) {
+                        $total += $reservation->number_of_persons;
+                    }
+                }
+                if($total + $nbOfClients > 20) {
+                    $errors['nbOfClients'] = 'Il n\'y a plus de place ce jour le soir.';
+                }
+            }
+
             foreach ($slots as $key => $slot) {
                 if($time == $key) {
                     $datetime = $date . ' ' . $slot;

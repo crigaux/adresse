@@ -1,7 +1,7 @@
 <?php
 
 	define('DSN', 'mysql:host=localhost;dbname=adresse;charset=utf8');
-	define('USER', 'adresse');
+	define('USER', 'root');
 	define('PWD', '');
 
 

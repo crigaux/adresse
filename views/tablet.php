@@ -2,19 +2,18 @@
         <?php for ($i = $firstDishType ; $i < $typesOfDishes ; $i++) :?>
             <?php $dishTypeName = Dish::dishTypeName($i) ?>
             <?php if($i == $firstDishType) : ?>
-                <section id="<?= $dishTypeName ?>" class="topDishes">
-            <?php else : ?>
+                <section class="topDishes"> </section>
+            <?php endif ; ?>
+            <?php if(!empty(Dish::getAllActive($i))) { ?>
                 <section id="<?= $dishTypeName ?>">
-            <?php endif; ?>
                 <h2><?= ucfirst($dishTypeName) ?></h2>
                 <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
                 <div class="foodCardContainer">
-                    <?php foreach (Dish::getAll($i) as $element) : 
+                    <?php foreach (Dish::getAllActive($i) as $element) : 
                     ?>
                         <div class="foodCard">
                             <div class="foodCardImg">
-                                <img src="/public/assets/baseImg/dish.jpg" alt="">
-                                <!-- <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>"> -->
+                                <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>">
                             </div>
                             <div class="foodCardDesc">
                                 <h3><?= $element->title ?></h3>
@@ -25,16 +24,17 @@
                     <?php endforeach; ?>
                 </div>
             </section>
+            <?php } ?>
         <?php endfor; ?>
     </div>
     <div class="containerDrinks hidden">
         <?php for ($i = $firstDrinkType ; $i < $typesOfDrinks ; $i++) :?>
             <?php $dishTypeName = Drink::drinkTypeName($i) ?>
             <?php if($i == $firstDrinkType) : ?>
-                <section id="<?= $dishTypeName ?>" class="topDrinks">
-            <?php else : ?>
+                <section class="topDrinks"> </section>
+            <?php endif ; ?>
+            <?php if(!empty(Drink::getAllActive($i))){?>
                 <section id="<?= $dishTypeName ?>">
-            <?php endif; ?>
                 <h2><?= ucfirst($dishTypeName) ?></h2>
                 <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
                 <div class="foodCardContainer">
@@ -42,7 +42,7 @@
                     ?>
                         <div class="foodCard">
                             <div class="foodCardImg">
-                                <img src="/public/assets/banner/banner.jpg" alt="Logo de l'adresse">
+                                <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>">
                             </div>
                             <div class="foodCardDesc">
                                 <h3><?= $element->titre ?></h3>
@@ -75,7 +75,8 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <?php } ?>
                 </div>
             </section>
         <?php endfor; ?>
@@ -88,8 +89,7 @@
                 <?php foreach ($ardoiseDishes as $element) : ?>
                     <div class="foodCard">
                         <div class="foodCardImg">
-                            <img src="/public/assets/banner/banner.jpg" alt="">
-                            <!-- <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>"> -->
+                            <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>">
                         </div>
                         <div class="foodCardDesc">
                             <h3><?= $element->title ?></h3>

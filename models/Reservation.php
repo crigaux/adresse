@@ -275,4 +275,26 @@
 			}
 			return false;
 		}
+
+		/**
+		 * Récupère les réservations à une date donnée
+		 * 
+		 * @param string $date
+		 * 
+		 * @return array
+		 */
+		public static function getByDate(string $date):array {
+			$pdo = Database::getInstance();
+
+			$query = "SELECT `reservations`.`id`, `users`.`lastname`, `users`.`phone`, `users`.`email`, `reservations`.`reservation_date`, `reservations`.`number_of_persons`, `reservations`.`validated_at` FROM `reservations` INNER JOIN `users` ON `reservations`.`id_users` = `users`.`id` WHERE `reservations`.`reservation_date` = :date AND `reservations`.`number_of_persons` != 0 ORDER BY `reservations`.`reservation_date`;";
+
+			$sth = $pdo->prepare($query);
+
+			$sth->bindValue(':date', $date, PDO::PARAM_STR);
+
+			if($sth->execute()) {
+				return $sth->fetchAll();
+			}
+			return false;
+		}
 	}
