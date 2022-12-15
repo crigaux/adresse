@@ -56,11 +56,11 @@ main section:last-of-type {
 }
 
 .foodCard .foodCardImg {
-    height: 125px !important;
+    height: 100px !important;
 }
 
 button {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
 }
 
 .buttonDrinks {
