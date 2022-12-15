@@ -9,6 +9,10 @@
     position: fixed;
 }
 
+.fullDrinks button {
+    margin: 0 !important;
+}
+
 .navbarTablet {
     top: 0px;
 }
@@ -27,7 +31,7 @@ footer {
 }
 
 .containerButtonTablet a {
-    margin: .5rem;
+    margin: .25rem;
 }
 
 main {
@@ -60,9 +64,16 @@ button {
 }
 
 .buttonDrinks {
-    margin: 1rem;
+    margin: .25rem;
 }
 
 .hidden {
     display: none;
+}
+
+.ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

@@ -6,27 +6,7 @@
 		<lastmod>2022-12-12</lastmod>
 	</url>
 	<url>
-		<loc>https://www.ladresse-amiens.fr/accueil</loc>
-		<priority>0.80</priority>
-		<lastmod>2022-12-12</lastmod>
-	</url>
-	<url>
-		<loc>https://www.ladresse-amiens.fr/menu</loc>
-		<priority>0.80</priority>
-		<lastmod>2022-12-12</lastmod>
-	</url>
-	<url>
-		<loc>https://www.ladresse-amiens.fr/commentaires</loc>
-		<priority>0.80</priority>
-		<lastmod>2022-12-12</lastmod>
-	</url>
-	<url>
-		<loc>https://www.ladresse-amiens.fr/galerie</loc>
-		<priority>0.80</priority>
-		<lastmod>2022-12-12</lastmod>
-	</url>
-	<url>
-		<loc>https://www.ladresse-amiens.fr/connexion</loc>
+		<loc>https://www.ladresse-amiens.fr/cgu</loc>
 		<priority>0.80</priority>
 		<lastmod>2022-12-12</lastmod>
 	</url>
@@ -36,7 +16,27 @@
 		<lastmod>2022-12-12</lastmod>
 	</url>
 	<url>
-		<loc>https://www.ladresse-amiens.fr/cgu</loc>
+		<loc>https://www.ladresse-amiens.fr/connexion</loc>
+		<priority>0.80</priority>
+		<lastmod>2022-12-12</lastmod>
+	</url>
+	<url>
+		<loc>https://www.ladresse-amiens.fr/galerie</loc>
+		<priority>0.80</priority>
+		<lastmod>2022-12-12</lastmod>
+	</url>
+	<url>
+		<loc>https://www.ladresse-amiens.fr/commentaires</loc>
+		<priority>0.80</priority>
+		<lastmod>2022-12-12</lastmod>
+	</url>
+	<url>
+		<loc>https://www.ladresse-amiens.fr/menu</loc>
+		<priority>0.80</priority>
+		<lastmod>2022-12-12</lastmod>
+	</url>
+	<url>
+		<loc>https://www.ladresse-amiens.fr/accueil</loc>
 		<priority>0.80</priority>
 		<lastmod>2022-12-12</lastmod>
 	</url>
@@ -56,12 +56,12 @@
 		<lastmod>2022-12-15</lastmod>
 	</url>
 	<url>
-		<loc>https://www.ladresse-amiens.fr/controllers/tabletCtrl.php</loc>
+		<loc>https://www.ladresse-amiens.fr/views/templates/headerTablette.php</loc>
 		<priority>0.00</priority>
-		<lastmod>2022-12-14</lastmod>
+		<lastmod>2022-12-15</lastmod>
 	</url>
 	<url>
-		<loc>https://www.ladresse-amiens.fr/views/templates/headerTablette.php</loc>
+		<loc>https://www.ladresse-amiens.fr/controllers/tabletCtrl.php</loc>
 		<priority>0.00</priority>
 		<lastmod>2022-12-15</lastmod>
 	</url>
