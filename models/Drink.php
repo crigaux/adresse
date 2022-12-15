@@ -142,8 +142,8 @@ class Drink {
 		return false;
 	}
 
-	public function update() {
-		$sql = "UPDATE boissons SET titre = :titre, description = :description, provenance = :provenance, appellation = :appellation, type = :type, prix = :prix, prix_bouteille = :prix_bouteille, prix_demibouteille = :prix_demibouteille, prix_verre = :prix_verre, prix_carafe = :prix_carafe, prix_demicarafe = :prix_demicarafe, alacarte = :alacarte WHERE id = :id";
+	public function update($id) {
+		$sql = "UPDATE boissons SET titre = :titre, description = :description, provenance = :provenance, appellation = :appellation, type = :type, prix = :prix, prix_bouteille = :prix_bouteille, prix_demibouteille = :prix_demibouteille, prix_verre = :prix_verre, prix_carafe = :prix_carafe, prix_demicarafe = :prix_demicarafe, alacarte = :alacarte, image = :image WHERE id = :id";
 		$sth = $this->pdo->prepare($sql);
 		$sth->bindValue(':titre', $this->titre, PDO::PARAM_STR);
 		$sth->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -157,7 +157,8 @@ class Drink {
 		$sth->bindValue(':prix_carafe', $this->prix_carafe, PDO::PARAM_STR);
 		$sth->bindValue(':prix_demicarafe', $this->prix_demicarafe, PDO::PARAM_STR);
 		$sth->bindValue(':alacarte', $this->alacarte, PDO::PARAM_INT);
-		$sth->bindValue(':id', $this->id, PDO::PARAM_INT);
+		$sth->bindValue(':image', $this->image, PDO::PARAM_INT);
+		$sth->bindValue(':id', $id, PDO::PARAM_INT);
 
 		if($sth->execute()) {
 			return ($sth->rowCount() == 1) ?  true : false;
