@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
     if (new Date().getDay() == 0 || new Date().getDay() == 6) {
         buttonArdoise.classList.add('hidden');
     }
-    if (new Date().getHours() < 10 || new Date().getHours() > 16) {
+    if (new Date().getHours() < 11 || new Date().getHours() > 15) {
         buttonArdoise.classList.add('hidden');
     }
 });
