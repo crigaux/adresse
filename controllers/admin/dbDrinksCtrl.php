@@ -193,6 +193,9 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/' . $id) {
 	$id = intval($id);
 	$drink = Drink::get($id);
 
+	$firstDrinkType = Drink::firstDrinkType();
+	$typesOfDrinks = Drink::drinkTypes() + $firstDrinkType;
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errors = [];
 
@@ -203,16 +206,46 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/' . $id) {
 		}
 		// Nettoie le prix et vérifie qu'il n'est pas vide
 		$price = floatval(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-		if (empty($price) && $price != 0) {
+		if (empty($price)) {
 			$errors['price'] = 'Veuillez entrer un prix';
 		}
-
 		// Nettoie la description
 		$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
 
+		// Nettoie le type de plat et vérifie qu'il n'est pas vide
+		$type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_NUMBER_INT));
+		if (empty($type)) {
+			$errors['type'] = 'Veuillez entrer un type de plat';
+		}
+		// Vérifie que le type de plat est valide
+		$validType = [];
+		for ($i = $firstDrinkType; $i < $typesOfDrinks; $i++) {
+			$validType[] += $i;
+		}
+		if (in_array($type, $validType) == false) {
+			$errors['type'] = 'Veuillez entrer un type de plat valide';
+		}
+
+		// Nettoie la provenance
+		$provenance = filter_input(INPUT_POST, 'provenance', FILTER_SANITIZE_SPECIAL_CHARS);
+		// Nettoie l'appellation
+		$appellation = filter_input(INPUT_POST, 'appellation', FILTER_SANITIZE_SPECIAL_CHARS);
+		// Nettoie le prix de la boisson
+		$price = floatval(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la bouteille
+		$prix_bouteille = floatval(filter_input(INPUT_POST, 'prix_bouteille', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la demi-bouteille
+		$prix_demibouteille = floatval(filter_input(INPUT_POST, 'prix_demibouteille', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix du verre
+		$prix_verre = floatval(filter_input(INPUT_POST, 'prix_verre', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la carafe
+		$prix_carafe = floatval(filter_input(INPUT_POST, 'prix_carafe', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la demi_carafe
+		$prix_demicarafe = floatval(filter_input(INPUT_POST, 'prix_demicarafe', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+
 		if (empty($errors)) {
 			// Met à jour le plat
-			$drinkUpdated = new Drink($title, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte, $drink->image);
+			$drinkUpdated = new Drink($title, $description, $provenance, $appellation, $type, $price, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $drink->alacarte, $drink->image);
 			$drinkUpdated->update($id);
 
 			// Redirige vers la page des plats
@@ -223,7 +256,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/' . $id) {
 	}
 
 	include(__DIR__ . '/../../views/admin/templates/dbHeader.php');
-	include(__DIR__ . '/../../views/admin/dbSpecialModify.php');
+	include(__DIR__ . '/../../views/admin/dbDrinkModify.php');
 	include(__DIR__ . '/../../views/admin/templates/dbFooter.php');
 }
 
@@ -245,7 +278,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/active/' . $id) {
 		exit();
 	}
 
-	$drinkUpdate = new Drink($title, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte, $drink->image);
+	$drinkUpdate = new Drink($drink->titre, $drink->description, $drink->provenance, $drink->appellation, $drink->type, $drink->prix, $drink->prix_bouteille, $drink->prix_demibouteille, $drink->prix_verre, $drink->prix_carafe, $drink->prix_demicarafe, $active, $drink->image);
 	$drinkUpdate->update($id);
 
 	if ($active == 1) {
@@ -274,7 +307,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/img/' . $id) {
 			SessionFlash::set('error', 'L\'image n\'a pas pu être modifiée.');
 		}
 	} else {
-		$drinkUpdated = new Special($drink->title, $drink->description, $drink->price, $drink->type,  $drink->datetime, 2, $drink->active);
+		$drinkUpdated = new Drink($drink->titre, $drink->description, $drink->provenance, $drink->appellation, $drink->type, $drink->prix, $drink->prix_bouteille, $drink->prix_demibouteille, $drink->prix_verre, $drink->prix_carafe, $drink->prix_demicarafe, $drink->alacarte, 2);
 		$drinkUpdated->update($id);
 		$target_file = strtolower(str_replace(' ', '', $drink->id)) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
 		$target_path = $target_dir . $target_file;
