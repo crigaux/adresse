@@ -121,8 +121,8 @@ section {
 
 .returnToTop {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: .75rem;
+    right: 1rem;
     background-color: var(--mediumBlue);
     border-radius: 100%;
     width: 3rem;
