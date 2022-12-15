@@ -16,10 +16,12 @@ any('/connexion', 'controllers/connectionCtrl.php');
 get('/disconnect', 'controllers/disconnectCtrl.php');
 // Mot de passe oublié
 any('/oubli-mot-de-passe', 'controllers/forgotPwdCtrl.php');
-// Mot de passe oublié
+
 any('/admin/banner', 'controllers/admin/dbBannerCtrl.php');
-// Mot de passe oublié
+
 any('/admin/banner/edit', 'controllers/admin/dbBannerCtrl.php');
+
+any('/admin/ardoise', 'controllers/admin/dbDailySpecialCtrl.php');
 
 // #############################
 // Gestion du profil utilisateur
@@ -67,14 +69,43 @@ get('/admin/', 'controllers/admin/dbDishesCtrl.php');
 get('/admin/menu', 'controllers/admin/dbDishesCtrl.php');
 // Ajout d'un plat
 any('/admin/menu/ajout', 'controllers/admin/dbDishesCtrl.php');
+// Ajout d'un plat à l'ardoise
+any('/admin/ardoise/ajout', 'controllers/admin/dbDailySpecialCtrl.php');
 // Modification d'un plat
 any('/admin/menu/edit/$id', 'controllers/admin/dbDishesCtrl.php');
+// Modification d'un plat de l'ardoise
+any('/admin/ardoise/edit/$id', 'controllers/admin/dbDailySpecialCtrl.php');
 // Modification de l'image d'un plat
 any('/admin/menu/edit/img/$id', 'controllers/admin/dbDishesCtrl.php');
+// Modification de l'image d'un plat de l'ardoise
+any('/admin/ardoise/edit/img/$id', 'controllers/admin/dbDailySpecialCtrl.php');
 // Acitve la visibilité d'un plat sur le menu
 any('/admin/menu/edit/active/$id', 'controllers/admin/dbDishesCtrl.php');
+// Acitve la visibilité d'un plat de l'ardoise sur le menu
+any('/admin/ardoise/edit/active/$id', 'controllers/admin/dbDailySpecialCtrl.php');
 // Suppression d'un plat
 any('/admin/menu/delete/$id', 'controllers/admin/dbDishesCtrl.php');
+// Suppression d'un plat de l'ardoise
+any('/admin/ardoise/delete/$id', 'controllers/admin/dbDailySpecialCtrl.php');
+// Recherche d'un plat
+any('/admin/ardoise/search', 'controllers/admin/dbDailySpecialCtrl.php');
+
+// #####################
+// Gestion des boissons
+// #####################
+
+// Boissons (admin)
+any('/admin/boissons', 'controllers/admin/dbDrinksCtrl.php');
+// Ajout d'une boisson
+any('/admin/boissons/ajout', 'controllers/admin/dbDrinksCtrl.php');
+// Modification d'une boisson
+any('/admin/boissons/edit/$id', 'controllers/admin/dbDrinksCtrl.php');
+// Modification de l'image d'une boisson
+any('/admin/boissons/edit/img/$id', 'controllers/admin/dbDrinksCtrl.php');
+// Active la visibilité d'une boisson sur le menu
+any('/admin/boissons/edit/active/$id', 'controllers/admin/dbDrinksCtrl.php');
+// Suppression d'une boisson
+any('/admin/boissons/delete/$id', 'controllers/admin/dbDrinksCtrl.php');
 
 // #####################
 // Gestion des commandes

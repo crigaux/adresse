@@ -26,6 +26,8 @@
 	--logo-weight : 800;
 
 	font-family: 'Montserrat';
+
+	scroll-behavior: smooth;
 }
 
 h1 {
@@ -69,6 +71,41 @@ main {
 	height: 30px;
 	width: 30px;
 	z-index: 50;
+}
+
+.returnToTop {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	background-color: var(--tertiary-color);
+	border-radius: 100%;
+	width: 3rem;
+	height: 3rem;
+	z-index: 100;
+}
+
+.returnToTop a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.returnToTop a svg {
+	height: 30px;
+	color: var(--fontColorLight);
+}
+
+.btnFilter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.btnFilter a {
+	margin: 0 1rem;
 }
 
 .sidebar .closeBurger svg {
@@ -232,6 +269,8 @@ main {
 	margin-top: 0.2rem;
 	font-style: italic;
 	text-align: center;
+	height: 72px;
+	overflow: hidden;
 }
 
 .dishCard .dishBody .price,
@@ -1287,35 +1326,35 @@ button:hover {
 	margin: 1rem;
 }
 
-/* .users form.searchBar {
-	width: 30%;
-	display: flex;
-	flex-direction: row;
-	align-self: flex-end;
-	margin-right: ;
-} */
-
-.users form.searchBar {
-	width: 80%;
+form.searchBar {
+	width: 350px;
 	display: flex;
 	flex-direction: row;
 }
 
-.users .searchBar button {
+.searchBar button {
 	padding: 0.3rem 0.4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 0.5rem 0.5rem;
 }
 
-.users .searchBar button svg {
+.searchBar button svg {
 	fill: var(--secondary-color);
 	height: 20px;
 	padding: 0;
 }
 
-.users .searchBar button:hover svg {
+.searchBar button:hover svg {
 	fill: var(--tertiary-color);
+}
+
+.searchContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 
 @media (min-width: 900px) {
@@ -1324,11 +1363,13 @@ button:hover {
 		width: calc(100vw - 220px);
 	}
 
-	.users form.searchBar {
-		width: 30%;
+	.searchContainer {
+		justify-content: flex-end;
+	}
+
+	form.searchBar {
 		display: flex;
 		flex-direction: row;
-		align-self: flex-end;
 		margin-right: 2rem;
 	}
 }
@@ -1357,4 +1398,18 @@ button:hover {
 	width: 60%;
 	height: 300px;
 	object-fit: cover;
+}
+
+/* Boissons */
+
+.drinks {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
+.drinks a {
+	margin: 0 .5rem;
 }
