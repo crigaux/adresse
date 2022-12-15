@@ -127,5 +127,12 @@ get('/jwtverif', 'controllers/JWTVerifCtrl.php');
 any('/modif-mdp', 'controllers/resetPwdCtrl.php');
 
 get('/cgu', 'controllers/cguCtrl.php');
+
+// ######################################
+// Gestion du mode Tablette
+// ######################################
+
+any('/tablette', 'controllers/tabletCtrl.php');
+
 // Page not found
 any('/404','/404.php');

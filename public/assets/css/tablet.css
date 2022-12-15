@@ -1,0 +1,68 @@
+.navbarTablet, footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgColor);
+    position: fixed;
+}
+
+.navbarTablet {
+    top: 0px;
+}
+
+footer {
+    bottom: 0px;
+}
+
+.containerButtonTablet {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerButtonTablet a {
+    margin: .5rem;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main section:last-of-type {
+    margin-bottom: 70px;
+}
+
+.foodCardContainer {
+    margin: 0rem 0.5rem 1.5rem 0 !important;
+}
+
+.foodCard {
+    width: 200px !important;
+}
+
+.foodCard .foodCardImg {
+    height: 125px !important;
+}
+
+button {
+    font-size: 1rem !important;
+}
+
+.buttonDrinks {
+    margin: 1rem;
+}
+
+.hidden {
+    display: none;
+}
