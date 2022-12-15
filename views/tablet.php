@@ -1,7 +1,7 @@
     <div class="containerDishes">
         <?php for ($i = $firstDishType ; $i < $typesOfDishes ; $i++) :?>
             <?php $dishTypeName = Dish::dishTypeName($i) ?>
-            <?php if($i == 1) : ?>
+            <?php if($i == $firstDishType) : ?>
                 <section id="<?= $dishTypeName ?>" class="topDishes">
             <?php else : ?>
                 <section id="<?= $dishTypeName ?>">
@@ -30,7 +30,7 @@
     <div class="containerDrinks hidden">
         <?php for ($i = $firstDrinkType ; $i < $typesOfDrinks ; $i++) :?>
             <?php $dishTypeName = Drink::drinkTypeName($i) ?>
-            <?php if($i == 1) : ?>
+            <?php if($i == $firstDrinkType) : ?>
                 <section id="<?= $dishTypeName ?>" class="topDrinks">
             <?php else : ?>
                 <section id="<?= $dishTypeName ?>">
@@ -42,8 +42,7 @@
                     ?>
                         <div class="foodCard">
                             <div class="foodCardImg">
-                                <img src="/public/assets/banner/banner.jpg" alt="">
-                                <!-- <img src=<?= ($element->image == 2) ? "/public/assets/galery/".strtolower(str_replace(' ', '', $element->id)).".jpg" : '/public/assets/baseImg/dish.jpg'?> alt="Photo de <?= $element->title ;?>"> -->
+                                <img src="/public/assets/banner/banner.jpg" alt="Logo de l'adresse">
                             </div>
                             <div class="foodCardDesc">
                                 <h3><?= $element->titre ?></h3>
