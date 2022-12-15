@@ -22,14 +22,16 @@ function changeMargin(navbar, firstSection) {
     firstSection.style.marginTop = navbar.offsetHeight + 'px';
 }
 
-// disable the buttonArdoise in week-end
-
-
-
 // Event Listeners
 
 window.addEventListener('load', () => {
     changeMargin(NavbarDishes, firstSectionDishes);
+    if (new Date().getDay() == 0 || new Date().getDay() == 6) {
+        buttonArdoise.classList.add('hidden');
+    }
+    if (new Date().getHours() < 11 || new Date().getHours() > 16) {
+        buttonArdoise.classList.add('hidden');
+    }
 });
 
 buttonDishes.addEventListener('click', () => {
