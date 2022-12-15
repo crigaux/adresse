@@ -28,28 +28,27 @@
             <?php endfor; ?>
         </div>
     </div>
-    <div class="navbarTablet fullDrinks">
+    <div class="navbarTablet fullDrinks hidden">
         <div class="containerButtonTablet">
-            <?php for($i = $firstDishType ; $i < $typesOfDishes ; $i++) : ?>
-                <?php $dishTypeName = Dish::dishTypeName($i) ?>
+            <?php for($i = $firstDrinkType ; $i < $typesOfDrinks ; $i++) : ?>
+                <?php $dishTypeName = Drink::drinkTypeName($i) ?>
+                <?php if($dishTypeName != '') : ?>
                 <a href="#<?= $dishTypeName ?>">
                 <button>
                     <?= ucfirst($dishTypeName) ?>
                 </button>
                 </a>
+                <?php endif; ?>
             <?php endfor; ?>
         </div>
     </div>
-    <div class="navbarTablet fullArdoise">
+    <div class="navbarTablet fullArdoise hidden">
         <div class="containerButtonTablet">
-            <?php for($i = $firstDishType ; $i < $typesOfDishes ; $i++) : ?>
-                <?php $dishTypeName = Dish::dishTypeName($i) ?>
-                <a href="#<?= $dishTypeName ?>">
+            <a href="#">
                 <button>
-                    <?= ucfirst($dishTypeName) ?>
+                    Ardoise
                 </button>
-                </a>
-            <?php endfor; ?>
+            </a>
         </div>
     </div>
     <main>
