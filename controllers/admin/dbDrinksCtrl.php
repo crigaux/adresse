@@ -25,22 +25,28 @@ if ($_SERVER['REQUEST_URI'] == '/admin/boissons') {
 }
 
 // ###############################################################################
-// ###                  FILTRE DE RECHERCHE DES UTILISATEURS                   ###	
+// ###                    FILTRE DE RECHERCHE DES BOISSONS                     ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/search') {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/search') {
 	$search = trim(filter_input(INPUT_POST, 'search', FILTER_SANITIZE_SPECIAL_CHARS));
 
+	$firstDrinkType = Drink::firstDrinkType();
+	$typesOfDrinks = Drink::drinkTypes() + $firstDrinkType;
+
 	include(__DIR__ . '/../../views/admin/templates/dbHeader.php');
-	include(__DIR__ . '/../../views/admin/dbDailySpecial.php');
+	include(__DIR__ . '/../../views/admin/dbDrinks.php');
 	include(__DIR__ . '/../../views/admin/templates/dbFooter.php');
 }
 
 // ###############################################################################
-// ###                            AJOUT D'UN PLAT                              ###	
+// ###                          AJOUT D'UNE BOISSON                            ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/ajout') {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/ajout') {
+	$firstDrinkType = Drink::firstDrinkType();
+	$typesOfDrinks = Drink::drinkTypes() + $firstDrinkType;
+
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errors = [];
 
@@ -58,18 +64,36 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/ajout') {
 		$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
 
 		// Nettoie le type de plat et vérifie qu'il n'est pas vide
-		$dish_type = intval(filter_input(INPUT_POST, 'dish_type', FILTER_SANITIZE_NUMBER_INT));
-		if (empty($dish_type)) {
-			$errors['dish_type'] = 'Veuillez entrer un type de plat';
+		$type = intval(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_NUMBER_INT));
+		if (empty($type)) {
+			$errors['type'] = 'Veuillez entrer un type de plat';
 		}
 		// Vérifie que le type de plat est valide
 		$validType = [];
-		for ($i = 1 ; $i <= 3 ; $i++) {
+		for ($i = $firstDrinkType; $i < $typesOfDrinks; $i++) {
 			$validType[] += $i;
 		}
-		if (in_array($dish_type, $validType) == false) {
-			$errors['dish_type'] = 'Veuillez entrer un type de plat valide';
+		if (in_array($type, $validType) == false) {
+			$errors['type'] = 'Veuillez entrer un type de plat valide';
 		}
+
+		// Nettoie la provenance
+		$provenance = filter_input(INPUT_POST, 'provenance', FILTER_SANITIZE_SPECIAL_CHARS);
+		// Nettoie l'appellation
+		$appellation = filter_input(INPUT_POST, 'appellation', FILTER_SANITIZE_SPECIAL_CHARS);
+		// Nettoie le prix de la boisson
+		$price = floatval(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la bouteille
+		$prix_bouteille = floatval(filter_input(INPUT_POST, 'prix_bouteille', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la demi-bouteille
+		$prix_demibouteille = floatval(filter_input(INPUT_POST, 'prix_demibouteille', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix du verre
+		$prix_verre = floatval(filter_input(INPUT_POST, 'prix_verre', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la carafe
+		$prix_carafe = floatval(filter_input(INPUT_POST, 'prix_carafe', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+		// Nettoie le prix de la demi_carafe
+		$prix_demicarafe = floatval(filter_input(INPUT_POST, 'prix_demicarafe', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+
 
 		$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/drinks/";
 
@@ -88,8 +112,8 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/ajout') {
 				} else {
 					$image = 2;
 				}
-				$dish = new Drink($title, $description, $price, $dish_type, '', $image);
-				if ($dish->create() == true) {
+				$drink = new Drink($title, $description, $provenance, $appellation, $type, $price, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, 0, $image);
+				if ($drink->create() == true) {
 					if(!empty($_FILES["img"]["name"])) {
 						$target_file = strtolower(str_replace(' ', '', $pdo->lastInsertId())) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
 						$target_path = $target_dir . $target_file;
@@ -128,18 +152,18 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/ajout') {
 						$resampledDestination = $target_dir . $target_file;
 						imagejpeg($dst_image, $resampledDestination, 75);
 					} else {
-						move_uploaded_file($_SERVER['DOCUMENT_ROOT'] . '/public/assets/baseImg/dish.jpg', $target_path);
+						move_uploaded_file($_SERVER['DOCUMENT_ROOT'] . '/public/assets/baseImg/drink.jpg', $target_path);
 					}
 					
 					SessionFlash::set('message', 'Le plat a été ajouté.');
-					header('Location: /admin/boisson#dish' . $pdo->lastInsertId());
+					header('Location: /admin/boissons#drink' . $pdo->lastInsertId());
 					exit();
 				}
 			}
 		}
 	}
 	include(__DIR__ . '/../../views/admin/templates/dbHeader.php');
-	include(__DIR__ . '/../../views/admin/dbAddSpecial.php');
+	include(__DIR__ . '/../../views/admin/dbDrinkAdd.php');
 	include(__DIR__ . '/../../views/admin/templates/dbFooter.php');
 }
 
@@ -147,17 +171,17 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/ajout') {
 // ###                          SUPPRESSION D'UN PLAT                          ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/delete/' . $id) {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/delete/' . $id) {
 	$id = intval($id);
-	$dish = Drink::get($id);
+	$drink = Drink::get($id);
 	if (Drink::delete($id) == true) {
-		unlink($_SERVER['DOCUMENT_ROOT'] . "/public/assets/drinks/" . htmlspecialchars_decode(strtolower(str_replace(' ', '', $dish->id))) . '.jpg');
+		unlink($_SERVER['DOCUMENT_ROOT'] . "/public/assets/drinks/" . htmlspecialchars_decode(strtolower(str_replace(' ', '', $drink->id))) . '.jpg');
 		SessionFlash::set('message', 'Le plat a bien été supprimé.');
-		header('location: /admin/boisson');
+		header('location: /admin/boissons');
 		exit();
 	}
 	SessionFlash::set('error', 'Le plat n\'a pas pu être supprimé.');
-	header('location: /admin/boisson');
+	header('location: /admin/boissons');
 	exit();
 }
 
@@ -165,9 +189,9 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/delete/' . $id) {
 // ###                          MISE À JOUR D'UN PLAT                          ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/' . $id) {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/' . $id) {
 	$id = intval($id);
-	$dish = Drink::get($id);
+	$drink = Drink::get($id);
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$errors = [];
@@ -186,16 +210,14 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/' . $id) {
 		// Nettoie la description
 		$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
 
-
-
 		if (empty($errors)) {
 			// Met à jour le plat
-			$dishUpdated = new Drink($title, $description, $price, $dish->type,  date('Y-m-d', time()), $dish->image, $dish->active);
-			$dishUpdated->update($id);
+			$drinkUpdated = new Drink($title, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte, $drink->image);
+			$drinkUpdated->update($id);
 
 			// Redirige vers la page des plats
 			SessionFlash::set('message', 'Le plat a bien été modifié.');
-			header('location: /admin/boisson');
+			header('location: /admin/boissons');
 			exit();
 		}
 	}
@@ -209,9 +231,9 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/' . $id) {
 // ###                 AFFICHAGE DU PLAT OU NON SUR L'ACCUEIL                  ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/active/' . $id) {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/active/' . $id) {
 	$id = intval($id);
-	$dish = Drink::get($id);
+	$drink = Drink::get($id);
 
 	$errors = [];
 
@@ -219,12 +241,12 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/active/' . $id) {
 
 	if (($active < 1 && $active > 2)) {
 		SessionFlash::set('error', 'Impossible de modifier l\'état du plat.');
-		header('Location: /admin/boisson');
+		header('Location: /admin/boissons');
 		exit();
 	}
 
-	$dishUpdate = new Drink($dish->title, $dish->description, $dish->price, $dish->type, date('Y-m-d', time()), $dish->image, $active);
-	$dishUpdate->update($id);
+	$drinkUpdate = new Drink($title, $description, $provenance, $appellation, $type, $prix, $prix_bouteille, $prix_demibouteille, $prix_verre, $prix_carafe, $prix_demicarafe, $alacarte, $drink->image);
+	$drinkUpdate->update($id);
 
 	if ($active == 1) {
 		SessionFlash::set('message', 'Le plat n\'est désormais plus visible sur l\'accueil.');
@@ -232,7 +254,7 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/active/' . $id) {
 		SessionFlash::set('message', 'Le plat est désormais visible sur l\'accueil.');
 	}
 
-	header('location: /admin/boisson#dish' . $dish->id);
+	header('location: /admin/boissons#drink' . $drink->id);
 	exit();
 }
 
@@ -240,21 +262,21 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/active/' . $id) {
 // ###                    MISE À JOUR DE L'IMAGE D'UN PLAT                     ###	
 // ###############################################################################
 
-else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/img/' . $id) {
+else if ($_SERVER['REQUEST_URI'] == '/admin/boissons/edit/img/' . $id) {
 	$id = intval($id);
-	$dish = Drink::get($id);
+	$drink = Drink::get($id);
 
 	$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/drinks/";
 	if(empty($_FILES["img"]["name"])) {
-		if (move_uploaded_file('/public/assets/baseImg/dish.jpg', $target_path)) {
+		if (move_uploaded_file('/public/assets/baseImg/drink.jpg', $target_path)) {
 			SessionFlash::set('message', 'L\'image a bien été modifiée.');
 		} else {
 			SessionFlash::set('error', 'L\'image n\'a pas pu être modifiée.');
 		}
 	} else {
-		$dishUpdated = new Special($dish->title, $dish->description, $dish->price, $dish->type,  $dish->datetime, 2, $dish->active);
-		$dishUpdated->update($id);
-		$target_file = strtolower(str_replace(' ', '', $dish->id)) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
+		$drinkUpdated = new Special($drink->title, $drink->description, $drink->price, $drink->type,  $drink->datetime, 2, $drink->active);
+		$drinkUpdated->update($id);
+		$target_file = strtolower(str_replace(' ', '', $drink->id)) . '.' . pathinfo($_FILES["img"]["name"], PATHINFO_EXTENSION);
 		$target_path = $target_dir . $target_file;
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_path, PATHINFO_EXTENSION));
@@ -262,14 +284,14 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/img/' . $id) {
 		// Vérifie la taille du fichier
 		if ($_FILES["img"]["size"] > 5000000) {
 			SessionFlash::set('error', 'Le fichier est trop volumineux.');
-			header('location: /admin/boisson');
+			header('location: /admin/boissons');
 			exit();
 		}
 
 		// Filtre les extensions du fichier
 		if ($_FILES["img"]["type"] != 'image/jpeg') {
 			SessionFlash::set('error', 'Le fichier doit avoir l\'extension JPG, JPEG');
-			header('location: /admin/boisson');
+			header('location: /admin/boissons');
 			exit();
 		}
 
@@ -317,6 +339,6 @@ else if ($_SERVER['REQUEST_URI'] == '/admin/boisson/edit/img/' . $id) {
 		imagejpeg($dst_image, $resampledDestination, 75);
 	}
 
-	header('Location: /admin/boisson');
+	header('Location: /admin/boissons');
 	exit();
 }

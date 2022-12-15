@@ -1,12 +1,12 @@
 let deleteBtn = document.querySelectorAll('.btnDeleteConf');
 let modale = document.querySelector('.modale');
 let backBtn = document.querySelector('.modaleBtn button');
-let deleteOrderLink = document.querySelector('.deleteOrderLink');
+let deleteDrinkLink = document.querySelector('.deleteDrinkLink');
 
 deleteBtn.forEach((btn) => {
 	btn.addEventListener('click', (e) => {
 		modale.classList.add('active');
-		deleteOrderLink.href = '/admin/commande/delete/' + e.target.id
+		deleteDrinkLink.href = '/admin/boissons/delete/' + e.target.id
 	})
 })
 
