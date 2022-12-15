@@ -164,4 +164,13 @@
 			$ardoises = $sth->fetchAll();
 			return $ardoises;
 		}
+
+		// méthode pour récupérer les ardoises actives
+		public static function getAllActive() {
+			$pdo = Database::getInstance();
+			$sql = "SELECT * FROM `ardoises` WHERE `active` = 2";
+			$sth = $pdo->prepare($sql);
+			$sth->execute();
+			return $sth->fetchAll();
+		}
 	}
