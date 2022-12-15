@@ -38,7 +38,7 @@
                 <h2><?= ucfirst($dishTypeName) ?></h2>
                 <div class="stars">&#x2605;<span>&#x2605;</span>&#x2605;</div>
                 <div class="foodCardContainer">
-                    <?php foreach (Drink::getAll($i) as $element) : 
+                    <?php foreach (Drink::getAllActive($i) as $element) : 
                     ?>
                         <div class="foodCard">
                             <div class="foodCardImg">
