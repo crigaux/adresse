@@ -4,7 +4,7 @@
             <div class="contact">
                 <a href="https://goo.gl/maps/Gp8XFCxrvgKiEjRB9" target="_blank" class="adressContact">70 Rue des Jacobins, 80000 Amiens</a>
                 <a href="tel:0360604941" class="phoneContact">03 60 60 49 41</a>
-                <a href="mail:contact@ladresse-amiens.fr" class="mailContact">contact@ladresse-amiens.fr</a>
+                <a href="mail:ladresse.restaurant.amiens@gmail.com" class="mailContact">ladresse.restaurant.amiens@gmail.com</a>
             </div>
             <div class="social">
                 <a href="https://www.instagram.com/ladresse_restaurant_amiens/?igshid=YmMyMTA2M2Y%3D" target="_blank">
