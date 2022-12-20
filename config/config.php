@@ -1,21 +1,20 @@
 <?php
 
-	define('DSN', 'mysql:host=localhost;dbname=adresse;charset=utf8');
-	define('USER', 'root');
-	define('PWD', '');
-
+	define('DSN', 'mysql:host=ladressedbase.mysql.db;dbname=ladressebase;charset=utf8');
+	define('USER', 'ladressebase');
+	define('PWD', 'qsBRPlDA');
 
 	// Gestion des dates et heures en français
 
-	// $formatHour = new IntlDateFormatter(
-	// 	locale: 'fr_FR',
-	// 	pattern: "HH'h'mm"
-	// );
+	$formatHour = new IntlDateFormatter(
+		locale: 'fr_FR',
+		pattern: "HH'h'mm"
+	);
 
-	// $formatDate = new IntlDateFormatter(
-	// 	locale: 'fr_FR',
-	// 	pattern: 'EEEE d MMMM yyyy'
-	// );
+	$formatDate = new IntlDateFormatter(
+		locale: 'fr_FR',
+		pattern: 'EEEE d MMMM yyyy'
+	);
 
 	// Définition de 'secret'
 

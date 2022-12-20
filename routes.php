@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/router.php';
+require_once(__DIR__.'/router.php');
 any('/accueil', 'controllers/homeCtrl.php');
 get('/', 'controllers/homeCtrl.php');
 get('/menu', 'controllers/menuCtrl.php');

@@ -74,6 +74,4 @@ buttonArdoise.addEventListener('click', () => {
 });
 
 
-
-
-
+contact@ladresse-amiens.fr
