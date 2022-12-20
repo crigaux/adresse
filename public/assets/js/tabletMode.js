@@ -1,8 +1,8 @@
 // Variables 
 
-let NavbarDishes = document.querySelector('.fullDishes');
-let NavbarDrinks = document.querySelector('.fullDrinks');
-let NavbarArdoise = document.querySelector('.fullArdoise');
+let navbarDishes = document.querySelector('.fullDishes');
+let navbarDrinks = document.querySelector('.fullDrinks');
+let navbarArdoise = document.querySelector('.fullArdoise');
 
 let firstSectionDishes = document.querySelector('.topDishes');
 let firstSectionDrinks = document.querySelector('.topDrinks');
@@ -25,11 +25,11 @@ function changeMargin(navbar, firstSection) {
 // Event Listeners
 
 window.addEventListener('load', () => {
-    changeMargin(NavbarDishes, firstSectionDishes);
+    changeMargin(navbarDishes, firstSectionDishes);
     if (new Date().getDay() == 0 || new Date().getDay() == 6) {
         buttonArdoise.classList.add('hidden');
     }
-    if (new Date().getHours() < 11 || new Date().getHours() > 16) {
+    if (new Date().getHours() < 11 || new Date().getHours() > 15) {
         buttonArdoise.classList.add('hidden');
     }
 });
@@ -37,29 +37,39 @@ window.addEventListener('load', () => {
 buttonDishes.addEventListener('click', () => {
     if (containerDishes.classList.contains('hidden')) {
         containerDishes.classList.remove('hidden');
+        navbarDishes.classList.remove('hidden');
     }
+    navbarDrinks.classList.add('hidden');
     containerDrinks.classList.add('hidden');
+    navbarArdoise.classList.add('hidden');
     containerArdoise.classList.add('hidden');
+    changeMargin(navbarDishes, firstSectionDishes);
     window.scrollTo(0, 0);
 });
 
 buttonDrinks.addEventListener('click', () => {
-    changeMargin(NavbarDrinks, firstSectionDrinks);
     if (containerDrinks.classList.contains('hidden')) {
         containerDrinks.classList.remove('hidden');
+        navbarDrinks.classList.remove('hidden');
     }
     containerDishes.classList.add('hidden');
+    navbarDishes.classList.add('hidden');
     containerArdoise.classList.add('hidden');
+    navbarArdoise.classList.add('hidden');
+    changeMargin(navbarDrinks, firstSectionDrinks);
     window.scrollTo(0, 0);
 });
 
 buttonArdoise.addEventListener('click', () => {
-    changeMargin(NavbarArdoise, firstSectionArdoise);
     if (containerArdoise.classList.contains('hidden')) {
         containerArdoise.classList.remove('hidden');
+        navbarArdoise.classList.remove('hidden');
     }
     containerDishes.classList.add('hidden');
+    navbarDishes.classList.add('hidden');
     containerDrinks.classList.add('hidden');
+    navbarDrinks.classList.add('hidden');
+    changeMargin(navbarArdoise, firstSectionArdoise);
     window.scrollTo(0, 0);
 });
 

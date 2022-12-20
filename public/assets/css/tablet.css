@@ -9,6 +9,10 @@
     position: fixed;
 }
 
+.fullDrinks button {
+    margin: 0 !important;
+}
+
 .navbarTablet {
     top: 0px;
 }
@@ -27,7 +31,7 @@ footer {
 }
 
 .containerButtonTablet a {
-    margin: .5rem;
+    margin: .25rem;
 }
 
 main {
@@ -52,17 +56,24 @@ main section:last-of-type {
 }
 
 .foodCard .foodCardImg {
-    height: 125px !important;
+    height: 100px !important;
 }
 
 button {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
 }
 
 .buttonDrinks {
-    margin: 1rem;
+    margin: .25rem;
 }
 
 .hidden {
     display: none;
+}
+
+.ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
