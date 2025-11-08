@@ -1,4 +1,9 @@
 RewriteEngine On
 
+# Empêche l'affichage du listing des répertoires
+Options -Indexes
+
+# Redirige toutes les requêtes vers routes.php sauf les fichiers statiques
+
 RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.ttf)$
 RewriteRule (.*) routes.php [QSA,L]
